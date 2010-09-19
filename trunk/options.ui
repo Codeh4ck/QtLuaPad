@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Options</class>
+ <widget class="QDialog" name="Options">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>326</width>
+    <height>191</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Options</string>
+  </property>
+  <widget class="QGroupBox" name="groupBox">
+   <property name="geometry">
+    <rect>
+     <x>6</x>
+     <y>5</y>
+     <width>311</width>
+     <height>151</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Editor Options</string>
+   </property>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>57</x>
+      <y>28</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Program Style:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="styleCombo">
+    <property name="geometry">
+     <rect>
+      <x>140</x>
+      <y>26</y>
+      <width>101</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Windows</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WindowsXP</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>WindowsVista</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Motif</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>CDE</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Plastique</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Cleanlooks</string>
+     </property>
+    </item>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>30</x>
+      <y>65</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Programmer Nickname:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="progNickLine">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>63</y>
+      <width>113</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="wordWrapCheck">
+    <property name="geometry">
+     <rect>
+      <x>110</x>
+      <y>90</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Word Wrap</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>120</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Number of tab spaces:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="tabEdit">
+    <property name="geometry">
+     <rect>
+      <x>180</x>
+      <y>120</y>
+      <width>44</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="maxLength">
+     <number>40</number>
+    </property>
+    <property name="readOnly">
+     <bool>true</bool>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QGroupBox" name="groupBox_2">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>270</y>
+     <width>311</width>
+     <height>131</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>Syntax Highlighting Options</string>
+   </property>
+   <widget class="QLabel" name="label_5">
+    <property name="geometry">
+     <rect>
+      <x>59</x>
+      <y>24</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Keyword Color:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="keywordBtn">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>20</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="flat">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="commentBtn">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>46</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_6">
+    <property name="geometry">
+     <rect>
+      <x>59</x>
+      <y>50</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Comment Color:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_7">
+    <property name="geometry">
+     <rect>
+      <x>59</x>
+      <y>75</y>
+      <width>64</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>String Color:</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="stringBtn">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>73</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="funcBtn">
+    <property name="geometry">
+     <rect>
+      <x>160</x>
+      <y>100</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>59</x>
+      <y>102</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Function Color:</string>
+    </property>
+   </widget>
+  </widget>
+  <widget class="QPushButton" name="doneBtn">
+   <property name="geometry">
+    <rect>
+     <x>70</x>
+     <y>160</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Done</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="cancelBtn">
+   <property name="geometry">
+    <rect>
+     <x>180</x>
+     <y>160</y>
+     <width>75</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Cancel</string>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
