@@ -1,0 +1,16 @@
+break
+do
+end
+else
+elseif
+function
+if
+local
+repeat
+nil
+not
+or
+return
+then
+while
+until
