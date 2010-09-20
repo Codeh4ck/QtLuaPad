@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     a.setApplicationVersion("1.0");
     a.setOrganizationDomain("http://otland.net/");
     a.setOrganizationName("Delirium");
-    a.setStyle(new QPlastiqueStyle);
+    a.setStyle(new QWindowsVistaStyle);
     a.setPalette(a.style()->standardPalette());
     MainWindow w;
     w.show();

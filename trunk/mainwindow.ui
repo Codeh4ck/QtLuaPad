@@ -23,6 +23,18 @@
       <height>160</height>
      </rect>
     </property>
+    <property name="frameShape">
+     <enum>QFrame::WinPanel</enum>
+    </property>
+    <property name="frameShadow">
+     <enum>QFrame::Sunken</enum>
+    </property>
+    <property name="viewMode">
+     <enum>QMdiArea::TabbedView</enum>
+    </property>
+    <property name="documentMode">
+     <bool>true</bool>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menuBar">
@@ -96,7 +108,6 @@
     <bool>false</bool>
    </attribute>
   </widget>
-  <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
    <property name="text">
     <string>New</string>

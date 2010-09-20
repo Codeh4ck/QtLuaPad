@@ -4,6 +4,7 @@
 #include <QPlainTextEdit>
 #include <QObject>
 #include "highlighter.h"
+#include <QStatusBar>
 
 QT_BEGIN_NAMESPACE
 class QPaintEvent;
@@ -56,6 +57,7 @@ private:
     QString progName;
     bool wordWrap;
     Highlighter *highlighter;
+    QStatusBar *statusBar;
 };
 
 class LineNumberArea : public QWidget

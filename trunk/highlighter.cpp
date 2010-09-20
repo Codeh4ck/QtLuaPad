@@ -6,7 +6,7 @@ Highlighter::Highlighter(QTextDocument *parent) : QSyntaxHighlighter(parent)
 {
     HighlightingRule rule;
 
-    keywordFormat.setForeground(Qt::darkBlue);
+    keywordFormat.setForeground(QColor(128, 128, 255));
     keywordFormat.setFontWeight(QFont::Bold);
     QStringList keywordPatterns;
 
@@ -18,7 +18,7 @@ Highlighter::Highlighter(QTextDocument *parent) : QSyntaxHighlighter(parent)
         highlightingRules.append(rule);
     }
     classFormat.setFontWeight(QFont::Bold);
-    classFormat.setForeground(Qt::darkMagenta);
+    classFormat.setForeground(QColor(65, 105, 225));
 
     rule.pattern = QRegExp("\\bdo[A-Za-z]+\\b");
     rule.format = classFormat;
@@ -30,30 +30,33 @@ Highlighter::Highlighter(QTextDocument *parent) : QSyntaxHighlighter(parent)
     rule.pattern = QRegExp("\\bis[A-Za-z]+\\b");
     highlightingRules.append(rule);
 
-    singleLineCommentFormat.setForeground(Qt::red);
+    singleLineCommentFormat.setForeground(QColor(0, 220, 0).lighter(110));
     rule.pattern = QRegExp("--[^\n]*");
     rule.format = singleLineCommentFormat;
     highlightingRules.append(rule);
 
     multiLineCommentFormat.setForeground(Qt::red);
-    quotationFormat.setForeground(Qt::darkGreen);
-    rule.pattern = QRegExp("\".*\"");
+    quotationFormat.setForeground(QColor(128, 64, 0).lighter(100));
+    rule.pattern = QRegExp("\"\\b.*\\b\"");
     rule.format = quotationFormat;
     highlightingRules.append(rule);
-    rule.pattern = QRegExp("\'.*\'");
+    rule.pattern = QRegExp("\'\\b.*\\b\'");
     highlightingRules.append(rule);
 
-    functionFormat.setFontItalic(true);
-    functionFormat.setForeground(Qt::blue);
-    rule.pattern = QRegExp("\\b[A-Za-z0-9_]+(?=\\()");
+    functionFormat.setFontWeight(QFont::Bold);
+    functionFormat.setForeground(QColor(255, 128, 0).lighter(110));
+    rule.pattern = QRegExp("\\blocal\\b");
     rule.format = functionFormat;
     highlightingRules.append(rule);
 
+//    functionFormat.setFontItalic(true);
+//    functionFormat.setForeground(Qt::blue);
+//    rule.pattern = QRegExp("\\b[A-Za-z0-9_]+(?=\\()");
+//    rule.format = functionFormat;
+//    highlightingRules.append(rule);
+
     commentStartExpression = QRegExp("--\\[\\[");
     commentEndExpression = QRegExp(".\\]\\]");
-
-
-
 }
 
 void Highlighter::highlightBlock(const QString &text)

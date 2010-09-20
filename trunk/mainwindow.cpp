@@ -9,13 +9,13 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     ui->setupUi(this);
     setCentralWidget(ui->mdiArea);
-    QDate date;
-    QTime time;
-    QLabel *newLabel = new QLabel;
-    ui->statusBar->addPermanentWidget(newLabel);
-    newLabel->setText(tr("Date: %1 / Time %2").arg
-                               (date.currentDate().toString(),
-                                time.currentTime().toString()));
+//    QDate date;
+//    QTime time;
+//    QLabel *newLabel = new QLabel;
+//    ui->statusBar->addPermanentWidget(newLabel);
+//    newLabel->setText(tr("Date: %1 / Time %2").arg
+//                               (date.currentDate().toString(),
+//                                time.currentTime().toString()));
     QSettings settings("Delirium", "QtLuaPad");
     settings.beginGroup("QtLuaPad_Main");
     resize(settings.value("size").toSize());
@@ -37,6 +37,7 @@ void MainWindow::on_actionNew_triggered()
 {
     MdiChild *mdiChild = createMdiChild();
     mdiChild->show();
+    mdiChild->setWindowState(Qt::WindowMaximized);
 }
 
 MdiChild *MainWindow::createMdiChild()
@@ -52,7 +53,7 @@ void MainWindow::on_actionOpen_triggered()
 
         MdiChild *child = createMdiChild();
         if (child->loadFile(fileName)) {
-            ui->statusBar->showMessage(tr("File loaded"), 2000);
+            //ui->statusBar->showMessage(tr("File loaded successfully."), 2000);
             child->show();
         } else {
             child->close();

@@ -22,15 +22,15 @@ MdiChild::MdiChild()
     settings.beginGroup("QtLuaPad_Opt");
     progName = settings.value("progName").toString().toLatin1();
     wordWrap = settings.value("wordWrap").toBool();
-    settings.endGroup();
-
-
     wordWrap ? this->setWordWrapMode(QTextOption::WordWrap) :
             this->setWordWrapMode(QTextOption::NoWrap);
-    setFont(QFont("Arial", 12, QFont::Bold));
-    setWindowState(Qt::WindowMaximized);
-
+    settings.endGroup();
+    setFont(QFont("Courier New", 10, QFont::Normal));
     newFile();
+    statusBar = new QStatusBar(this);
+    this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+    this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+
 }
 
 void MdiChild::newFile()
@@ -40,8 +40,9 @@ void MdiChild::newFile()
     isUntitled = true;
     curFile = tr("script%1.lua").arg(sequence++);
     setWindowTitle(curFile + "[*]");
-    appendPlainText(tr("-- Created using QtLuaPad on %1.").arg(QDate::currentDate().toString()));
-    appendPlainText(tr("-- Script written by: %1.").arg(progName));
+    setPlainText(tr("-- Created using QtLuaPad on %1.\n-- Script written by: %2.")
+                 .arg(QDate::currentDate().toString(), progName));
+    document()->setModified(false);
     connect(document(), SIGNAL(contentsChanged()), this, SLOT(documentModified()));
 }
 
@@ -195,7 +196,7 @@ void MdiChild::highlightCurrentLine()
     if (!isReadOnly()) {
         QTextEdit::ExtraSelection selection;
 
-        QColor lineColor = QColor(Qt::yellow).lighter(160);
+        QColor lineColor = QColor(Qt::blue).lighter(193);
 
         selection.format.setBackground(lineColor);
         selection.format.setProperty(QTextFormat::FullWidthSelection, true);
