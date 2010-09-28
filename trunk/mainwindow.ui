@@ -6,12 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>336</height>
+    <width>519</width>
+    <height>449</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icons/res_icon.qrc">
+    <normaloff>:/winicon.png</normaloff>:/winicon.png</iconset>
   </property>
   <widget class="QWidget" name="centralWidget"/>
   <widget class="QMenuBar" name="menuBar">
@@ -19,7 +23,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>400</width>
+     <width>519</width>
      <height>21</height>
     </rect>
    </property>
@@ -80,6 +84,12 @@
    <addaction name="menuAbout"/>
   </widget>
   <widget class="QToolBar" name="mainToolBar">
+   <property name="movable">
+    <bool>false</bool>
+   </property>
+   <property name="floatable">
+    <bool>false</bool>
+   </property>
    <attribute name="toolBarArea">
     <enum>TopToolBarArea</enum>
    </attribute>
@@ -90,34 +100,43 @@
   <widget class="QStatusBar" name="statusBar"/>
   <action name="actionNew">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/new.png</normaloff>:/new.png</iconset>
    </property>
    <property name="text">
     <string>New</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
   </action>
   <action name="actionOpen">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/open.png</normaloff>:/open.png</iconset>
    </property>
    <property name="text">
     <string>Open</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
   </action>
   <action name="actionSave">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/disk.png</normaloff>:/disk.png</iconset>
    </property>
    <property name="text">
     <string>Save</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
   </action>
   <action name="actionSave_As">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/diskall.png</normaloff>:/diskall.png</iconset>
    </property>
    <property name="text">
@@ -126,7 +145,7 @@
   </action>
   <action name="actionPrint">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/printer.png</normaloff>:/printer.png</iconset>
    </property>
    <property name="text">
@@ -135,61 +154,79 @@
   </action>
   <action name="actionClose">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/quit.png</normaloff>:/quit.png</iconset>
    </property>
    <property name="text">
     <string>Close</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+W</string>
+   </property>
   </action>
   <action name="actionUndo">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/undo.png</normaloff>:/undo.png</iconset>
    </property>
    <property name="text">
     <string>Undo</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
   </action>
   <action name="actionRedo">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/redo.png</normaloff>:/redo.png</iconset>
    </property>
    <property name="text">
     <string>Redo</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
   </action>
   <action name="actionCut">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/cut.png</normaloff>:/cut.png</iconset>
    </property>
    <property name="text">
     <string>Cut</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
   </action>
   <action name="actionCopy">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/copy.png</normaloff>:/copy.png</iconset>
    </property>
    <property name="text">
     <string>Copy</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
   </action>
   <action name="actionPaste">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/paste.png</normaloff>:/paste.png</iconset>
    </property>
    <property name="text">
     <string>Paste</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
   </action>
   <action name="actionDelete_Line">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/x.png</normaloff>:/x.png</iconset>
    </property>
    <property name="text">
@@ -198,25 +235,31 @@
   </action>
   <action name="actionDelete_Selected">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/x.png</normaloff>:/x.png</iconset>
    </property>
    <property name="text">
     <string>Delete Selected</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Del</string>
+   </property>
   </action>
   <action name="actionSelect_All">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/doc.png</normaloff>:/doc.png</iconset>
    </property>
    <property name="text">
     <string>Select All</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+A</string>
+   </property>
   </action>
   <action name="actionFind">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/find.png</normaloff>:/find.png</iconset>
    </property>
    <property name="text">
@@ -225,7 +268,7 @@
   </action>
   <action name="actionFind_Replace">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/doc_edit.png</normaloff>:/doc_edit.png</iconset>
    </property>
    <property name="text">
@@ -234,44 +277,56 @@
   </action>
   <action name="actionDebuger">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/warning2.png</normaloff>:/warning2.png</iconset>
    </property>
    <property name="text">
     <string>Debuger</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
   </action>
   <action name="actionOptions">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/session_edit.png</normaloff>:/session_edit.png</iconset>
    </property>
    <property name="text">
     <string>Options</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+P</string>
+   </property>
   </action>
   <action name="actionQtLuaPad">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/about.png</normaloff>:/about.png</iconset>
    </property>
    <property name="text">
     <string>About QtLuaPad</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
   </action>
   <action name="actionOtland">
    <property name="icon">
-    <iconset resource="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc">
+    <iconset resource="icons/res_icon.qrc">
      <normaloff>:/refresh.png</normaloff>:/refresh.png</iconset>
    </property>
    <property name="text">
     <string>Otland</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="../../../Users/NIKOLAS/Desktop/icons/res_icon.qrc"/>
+  <include location="icons/res_icon.qrc"/>
  </resources>
  <connections/>
 </ui>

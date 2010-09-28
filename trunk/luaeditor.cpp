@@ -1,5 +1,6 @@
 #include "luaeditor.h"
 #include <QString>
+#include "definitions.h"
 
 LuaEditor::LuaEditor()
 {
@@ -14,6 +15,7 @@ LuaEditor::LuaEditor()
     this->setAutoIndent(true);
     this->setTabWidth(4);
     this->setFolding(QsciScintilla::BoxedTreeFoldStyle);
+    this->setBraceMatching(QsciScintilla::StrictBraceMatch);
 }
 
 void LuaEditor::initLexer()
@@ -68,7 +70,7 @@ void LuaEditor::setCurrentFile(const QString &file)
     isUntitled = false;
     this->setModified(false);
     this->setWindowModified(false);
-    setWindowTitle(tr("QtLuaPad - %1[*]").arg(getCurrentFile()));
+    setWindowTitle(tr("%1 - %2[*]").arg(APPNAME, getCurrentFile()));
 }
 
 QString LuaEditor::getStrippedName(const QString &fullPath)
@@ -83,7 +85,7 @@ QString LuaEditor::getCurrentFile()
 
 bool LuaEditor::saveAs()
 {
-    QString file = QFileDialog::getSaveFileName(this, "Save As...");
+    QString file = QFileDialog::getSaveFileName(this, "Save As...", "", "Lua Scripts (*.lua)");
 
     if(file.isEmpty())
         return false;
@@ -146,11 +148,9 @@ void LuaEditor::closeEvent(QCloseEvent *event)
     {
         save();
         event->accept();
-    } else if(ret == QMessageBox::Discard) {
+    } else if(ret == QMessageBox::Discard || QMessageBox::NoButton) {
         this->close();
     } else if(ret == QMessageBox::Cancel) {
         event->ignore();
-    } else if(ret == QMessageBox::NoButton) {
-        this->close();
     }
 }

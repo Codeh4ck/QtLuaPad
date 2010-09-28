@@ -21,7 +21,7 @@ class MainWindow : public QMainWindow
 
 public:
     explicit MainWindow(QWidget *parent = 0);
-    ~MainWindow();
+    //~MainWindow();
     void setStatusBarText(const QString &text);
 
     static MainWindow *getInstance()
@@ -33,20 +33,37 @@ public:
     LuaEditor *createMdiChild();
     LuaEditor *getActiveEditor();
 
+protected:
+    void closeEvent(QCloseEvent *event);
 
 private slots:
+    void on_actionOptions_triggered();
+    void on_actionQtLuaPad_triggered();
+    void on_actionOtland_triggered();
+    void on_actionSelect_All_triggered();
+    void on_actionDelete_Selected_triggered();
+    void on_actionDelete_Line_triggered();
+    void on_actionPaste_triggered();
+    void on_actionCopy_triggered();
+    void on_actionCut_triggered();
+    void on_actionRedo_triggered();
+    void on_actionUndo_triggered();
+    void on_actionClose_triggered();
+    void on_actionSave_As_triggered();
+    void on_actionSave_triggered();
+    void on_actionOpen_triggered();
     void on_actionNew_triggered();
     void newFile();
     void openFile();
     void saveFile();
     void showFind() { }
     void showReplace() { }
-    void cut() { }
-    void copy() { }
-    void paste() { }
-    void zoomIn() { }
-    void zoomOut() { }
-    void zoomDef() { }
+    void cut();
+    void copy();
+    void paste();
+    void zoomIn();
+    void zoomOut();
+    void zoomDef();
 
 private:
     Ui::MainWindow *ui;
