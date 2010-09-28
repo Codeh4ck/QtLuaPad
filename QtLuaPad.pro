@@ -12,12 +12,16 @@ TEMPLATE = app
 
 SOURCES += main.cpp\
         mainwindow.cpp \
-    luaeditor.cpp
+    luaeditor.cpp \
+    options.cpp
 
 HEADERS  += mainwindow.h \
-    luaeditor.h
+    luaeditor.h \
+    definitions.h \
+    options.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    options.ui
 
 LIBS += -lqscintilla2
 

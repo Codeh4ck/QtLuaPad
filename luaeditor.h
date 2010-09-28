@@ -27,6 +27,7 @@ public:
     bool saveAs();
     bool saveFile(const QString &name);
     QString currentFileP() { return currentFile; }
+    QMessageBox::StandardButton askToSave();
 
 protected:
     void closeEvent(QCloseEvent *event);
@@ -38,7 +39,6 @@ private:
     QsciLexerLua *lexer;
     bool isUntitled;
     QString currentFile;
-    QMessageBox::StandardButton askToSave();
     void setCurrentFile(const QString &file);
     QString getStrippedName(const QString &fullPath);
     QString getCurrentFile();
