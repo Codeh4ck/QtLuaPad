@@ -28,5 +28,4 @@ LIBS += -lqscintilla2
 RESOURCES += \
     icons/res_icon.qrc
 
-
 RC_FILE += icon.rc

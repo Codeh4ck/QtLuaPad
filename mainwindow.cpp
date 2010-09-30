@@ -16,11 +16,33 @@ MainWindow::MainWindow(QWidget *parent) :
     mdi = new QMdiArea(this);
     this->setCentralWidget(mdi);
     this->setWindowIcon(QIcon(":/winicon.png"));
-    mdi->setViewMode(QMdiArea::TabbedView);
+
+    //Read MainWindow settings from registry.
+    QSettings settings(ORGNAME, APPNAME);
+    settings.beginGroup("QtLuaPad");
+    this->move(settings.value("pos").toPoint());
+    QSize s = settings.value("size").toSize();
+
+    if(s.width() == 1280 && s.height() == 962)
+        this->setWindowState(Qt::WindowMaximized);
+    else
+        this->resize(s);
+
+    int view = settings.value("mdiview").toInt();
+    (view == 1)? mdi->setViewMode(QMdiArea::TabbedView) : mdi->setViewMode(QMdiArea::SubWindowView);
+    settings.endGroup();
 }
 
 void MainWindow::closeEvent(QCloseEvent *event)
 {
+    //Write MainWindow settings to registry.
+
+    QSettings settings(ORGNAME, APPNAME);
+    settings.beginGroup("QtLuaPad");
+    settings.setValue("pos", this->pos());
+    settings.setValue("size", this->size());
+    settings.endGroup();
+
     if(mdi->subWindowList().count() > 0)
     {
         QMessageBox::StandardButton ret =
@@ -39,13 +61,11 @@ void MainWindow::closeEvent(QCloseEvent *event)
         else if(ret == QMessageBox::No)
             event->ignore();
     }
-    event->accept();
 }
 
 void MainWindow::newFile()
 {
     on_actionNew_triggered();
-    ui->statusBar->showMessage("Initialized new script successfully!", 4000);
 }
 
 void MainWindow::saveFile()
@@ -136,6 +156,7 @@ void MainWindow::on_actionNew_triggered()
     child->newFile();
     child->setWindowIcon(QIcon(":/winicon.png"));
     child->showMaximized();
+    ui->statusBar->showMessage("Initialized new script successfully!", 4000);
 }
 
 void MainWindow::on_actionOpen_triggered()
@@ -234,7 +255,10 @@ void MainWindow::zoomDef()
 void MainWindow::on_actionQtLuaPad_triggered()
 {
     QMessageBox::about(this, "About QtLuaPad",
-                       tr("<b>Author:</b> Nikolas S. Andreou."
+                       tr("<h2><strong>QtLuaPad</strong></h2>"
+                          "<h4>An open source LUA script editor.</h4>"
+                          "<br />"
+                          "<b>Author:</b> Nikolas S. Andreou."
                           "<br />"
                           "<b>Version:</b> %1."
                           "<br />"

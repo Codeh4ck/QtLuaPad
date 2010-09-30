@@ -5,6 +5,13 @@
 LuaEditor::LuaEditor()
 {
     initLexer();
+    QSettings settings(ORGNAME, APPNAME);
+    settings.beginGroup("QtLuaPad");
+    int tabWidth = settings.value("tabwidth").toInt();
+    bool folding = settings.value("folding").toBool();
+    bool wrap = settings.value("wrap").toBool();
+    bool braceMatch = settings.value("bracematch").toBool();
+    settings.endGroup();
     this->setLexer(lexer);
     this->setUtf8(true);
     this->setMarginLineNumbers(1, true);
@@ -13,9 +20,13 @@ LuaEditor::LuaEditor()
     this->setIndentationGuides(true);
     this->setIndentationsUseTabs(true);
     this->setAutoIndent(true);
-    this->setTabWidth(4);
-    this->setFolding(QsciScintilla::BoxedTreeFoldStyle);
-    this->setBraceMatching(QsciScintilla::StrictBraceMatch);
+    this->setTabWidth(tabWidth);
+    (folding)? this->setFolding(QsciScintilla::BoxedTreeFoldStyle) :
+            this->setFolding(QsciScintilla::NoFoldStyle);
+    (braceMatch)? this->setBraceMatching(QsciScintilla::StrictBraceMatch) :
+            this->setBraceMatching(QsciScintilla::NoBraceMatch);
+    (wrap)? this->setWrapMode(QsciScintilla::WrapWord) :
+            this->setWrapMode(QsciScintilla::WrapNone);
 }
 
 void LuaEditor::initLexer()
@@ -39,7 +50,11 @@ void LuaEditor::newFile()
     isUntitled = true;
     currentFile = tr("newScript%1.lua").arg(sequence++);
     setWindowTitle(tr("%1[*]").arg(currentFile));
-    setText(tr("-- Created using QtLuaPad on %1\n\nfunction onUse(cid, item, frompos, item2, topos)\n\treturn TRUE\nend").arg(QDate::currentDate().toString()));
+    QSettings settings(ORGNAME, APPNAME);
+    settings.beginGroup("QtLuaPad");
+    QString programmer = settings.value("programmer").toString().toLatin1();
+    settings.endGroup();
+    setText(tr("-- Created using QtLuaPad on %1\n-- Written by: %2.\n\nfunction onUse(cid, item, frompos, item2, topos)\n\treturn TRUE\nend").arg(QDate::currentDate().toString(), programmer));
     this->setModified(false);
     connect(this, SIGNAL(textChanged()), this, SLOT(setDocumentModified()));
 }
@@ -104,7 +119,6 @@ bool LuaEditor::save()
 bool LuaEditor::saveFile(const QString &name)
 {
     QFile file(name);
-
     if(!file.open(QFile::WriteOnly | QFile::Text))
     {
         QMessageBox::warning(this, "Unable to save file!",
@@ -113,13 +127,11 @@ bool LuaEditor::saveFile(const QString &name)
                                   QMessageBox::NoButton);
         return false;
     }
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
     QTextStream stream(&file);
     stream << this->text();
     setCurrentFile(name);
     QApplication::restoreOverrideCursor();
-
     return true;
 }
 
