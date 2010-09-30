@@ -17,6 +17,11 @@ public:
 
 private:
     Ui::Options *ui;
+
+private slots:
+    void on_comboStyle_currentIndexChanged(QString );
+    void on_pushButton_2_clicked();
+    void on_pushButton_clicked();
 };
 
 #endif // OPTIONS_H

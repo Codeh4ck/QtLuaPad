@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Tue 28. Sep 01:37:26 2010
+** Created: Thu 30. Sep 13:26:18 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -61,7 +61,7 @@ public:
     {
         if (MainWindow->objectName().isEmpty())
             MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-        MainWindow->resize(519, 449);
+        MainWindow->resize(481, 386);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/winicon.png"), QSize(), QIcon::Normal, QIcon::Off);
         MainWindow->setWindowIcon(icon);
@@ -168,7 +168,7 @@ public:
         MainWindow->setCentralWidget(centralWidget);
         menuBar = new QMenuBar(MainWindow);
         menuBar->setObjectName(QString::fromUtf8("menuBar"));
-        menuBar->setGeometry(QRect(0, 0, 519, 21));
+        menuBar->setGeometry(QRect(0, 0, 481, 21));
         menuFile = new QMenu(menuBar);
         menuFile->setObjectName(QString::fromUtf8("menuFile"));
         menuEdit = new QMenu(menuBar);
@@ -258,7 +258,7 @@ public:
         actionDebuger->setText(QApplication::translate("MainWindow", "Debuger", 0, QApplication::UnicodeUTF8));
         actionDebuger->setShortcut(QApplication::translate("MainWindow", "Ctrl+D", 0, QApplication::UnicodeUTF8));
         actionOptions->setText(QApplication::translate("MainWindow", "Options", 0, QApplication::UnicodeUTF8));
-        actionOptions->setShortcut(QApplication::translate("MainWindow", "Ctrl+P", 0, QApplication::UnicodeUTF8));
+        actionOptions->setShortcut(QApplication::translate("MainWindow", "Shift+O", 0, QApplication::UnicodeUTF8));
         actionQtLuaPad->setText(QApplication::translate("MainWindow", "About QtLuaPad", 0, QApplication::UnicodeUTF8));
         actionQtLuaPad->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0, QApplication::UnicodeUTF8));
         actionOtland->setText(QApplication::translate("MainWindow", "Otland", 0, QApplication::UnicodeUTF8));
