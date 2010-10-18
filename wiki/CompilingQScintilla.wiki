@@ -1,0 +1,9 @@
+#A tutorial which teaches you how to compile QScintilla, which is essential for QtLuaPad to be compiled.
+
+= Introduction =
+
+First of all you'll need the QScintilla library which can be found here: <a href="http://www.riverbankcomputing.co.uk/software/qscintilla/download">QScintilla</a>.
+
+Extract its contents to your desktop and then run Qt Command Line.
+
+To be continued...
