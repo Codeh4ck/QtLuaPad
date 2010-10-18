@@ -1,4 +1,4 @@
-#A tutorial which teaches you how to compile QScintilla, which is essential for QtLuaPad to be compiled.
+<h3>A tutorial which teaches you how to compile QScintilla, which is essential for QtLuaPad to be compiled.</h3>
 
 = Introduction =
 
