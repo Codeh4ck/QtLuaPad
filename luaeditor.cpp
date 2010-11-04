@@ -1,17 +1,20 @@
 #include "luaeditor.h"
 #include <QString>
+#include "Qsci/qsciapis.h"
 #include "definitions.h"
 
 LuaEditor::LuaEditor()
 {
     initLexer();
+
     QSettings settings(ORGNAME, APPNAME);
     settings.beginGroup("QtLuaPad");
-    int tabWidth = settings.value("tabwidth").toInt();
-    bool folding = settings.value("folding").toBool();
-    bool wrap = settings.value("wrap").toBool();
-    bool braceMatch = settings.value("bracematch").toBool();
+    int tabWidth = settings.value("tabwidth", 4).toInt();
+    bool folding = settings.value("folding", true).toBool();
+    bool wrap = settings.value("wrap", false).toBool();
+    bool braceMatch = settings.value("bracematch", true).toBool();
     settings.endGroup();
+
     this->setLexer(lexer);
     this->setUtf8(true);
     this->setMarginLineNumbers(1, true);
@@ -42,6 +45,30 @@ void LuaEditor::initLexer()
     lexer->setColor(QColor(51, 102, 255), 15);
     lexer->setColor(QColor(72, 61, 139), 10);
     lexer->setFont(QFont("Courier New", 11, QFont::Bold));
+
+    QSettings settings(ORGNAME, APPNAME);
+    settings.beginGroup("QtLuaPad");
+    bool autoComp = settings.value("autocompletion").toBool();
+    QString funcFile = settings.value("funcfile").toString().toLatin1();
+    settings.endGroup();
+
+//    if(autoComp)
+//    {
+//        this->setAutoCompletionSource(QsciScintilla::AcsAll);
+//        this->setAutoCompletionCaseSensitivity(true);
+//        this->setAutoCompletionShowSingle(true);
+//        this->setAutoCompletionFillupsEnabled(true);
+//        QsciAPIs apis(lexer);
+//        if(loadWordsFromFile(funcFile))
+//        {
+//            for(int x = 0; x <= completerEntries.count(); x++)
+//            {
+//                apis.add(completerEntries.at(x));
+//            }
+//        }
+//        apis.prepare();
+//        lexer->setAPIs(&apis);
+//    }
 }
 
 void LuaEditor::newFile()
@@ -165,4 +192,47 @@ void LuaEditor::closeEvent(QCloseEvent *event)
     } else if(ret == QMessageBox::Cancel) {
         event->ignore();
     }
+}
+
+void LuaEditor::keyPressEvent(QKeyEvent *event)
+{
+    switch (event->key()) {
+        case Qt::Key_Space:
+            if (event->modifiers() & Qt::ControlModifier) {
+                this->autoCompleteFromAPIs();
+            } else {
+                QsciScintilla::keyPressEvent(event);
+            }
+        break;
+        case Qt::Key_Return:
+            if (event->modifiers() & Qt::ControlModifier) {
+                this->autoCompleteFromDocument();
+            } else {
+                QsciScintilla::keyPressEvent(event);
+            }
+        break;
+        default:
+            QsciScintilla::keyPressEvent(event);
+    }
+}
+
+bool LuaEditor::loadWordsFromFile(const QString &fileName)
+{
+    QFile f(fileName);
+    if(!f.open(QFile::ReadOnly | QFile::Text))
+    {
+        QMessageBox::critical(0, "Unable to load file",
+                              tr("Could not load keywords file.\nError: %1.").arg(f.errorString()),
+                              QMessageBox::Ok, QMessageBox::NoButton);
+        return false;
+    }
+
+    QTextStream stream(&f);
+    QString line = stream.readLine();
+    while(!line.isNull())
+    {
+        completerEntries << line.trimmed();
+        line = stream.readLine();
+    }
+    return false;
 }

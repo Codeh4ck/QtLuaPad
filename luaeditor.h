@@ -2,6 +2,7 @@
 #define LUAEDITOR_H
 
 #include <QtGui>
+#include <QCompleter>
 #include <Qsci/qsciscintilla.h>
 #include <Qsci/qscilexerlua.h>
 
@@ -28,13 +29,14 @@ public:
     bool saveFile(const QString &name);
     QString currentFileP() { return currentFile; }
     QMessageBox::StandardButton askToSave();
+    bool loadWordsFromFile(const QString &fileName);
 
 protected:
     void closeEvent(QCloseEvent *event);
+    void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void setDocumentModified();
-
 private:
     QsciLexerLua *lexer;
     bool isUntitled;
@@ -42,6 +44,7 @@ private:
     void setCurrentFile(const QString &file);
     QString getStrippedName(const QString &fullPath);
     QString getCurrentFile();
+    QStringList completerEntries;
 };
 
 #endif // LUAEDITOR_H
