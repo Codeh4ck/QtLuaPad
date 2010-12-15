@@ -32,11 +32,15 @@ public:
 
     LuaEditor *createMdiChild();
     LuaEditor *getActiveEditor();
+    void updateSettings(int tabWidth, bool _wrap, bool _brace, bool _fold);
+    void updateMdiView(int viewType);
+    QMdiArea *mdi;
 
 protected:
     void closeEvent(QCloseEvent *event);
 
 private slots:
+    void on_actionQuest_Creator_triggered();
     void on_actionOptions_triggered();
     void on_actionQtLuaPad_triggered();
     void on_actionOtland_triggered();
@@ -56,7 +60,7 @@ private slots:
     void newFile();
     void openFile();
     void saveFile();
-    void showFind() { }
+    void showFind();
     void showReplace() { }
     void cut();
     void copy();
@@ -69,7 +73,6 @@ private:
     Ui::MainWindow *ui;
     LuaEditor *editor;
     void setupToolbar();
-    QMdiArea *mdi;
     QMdiSubWindow *getChildByPath(const QString &path);
 };
 

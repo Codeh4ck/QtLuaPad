@@ -13,15 +13,21 @@ TEMPLATE = app
 SOURCES += main.cpp\
         mainwindow.cpp \
     luaeditor.cpp \
-    options.cpp
+    options.cpp \
+    finddialog.cpp \
+    questcreator.cpp
 
 HEADERS  += mainwindow.h \
     luaeditor.h \
     definitions.h \
-    options.h
+    options.h \
+    finddialog.h \
+    questcreator.h
 
 FORMS    += mainwindow.ui \
-    options.ui
+    options.ui \
+    finddialog.ui \
+    questcreator.ui
 
 LIBS += -lqscintilla2
 

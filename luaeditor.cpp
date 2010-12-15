@@ -30,6 +30,8 @@ LuaEditor::LuaEditor()
             this->setBraceMatching(QsciScintilla::NoBraceMatch);
     (wrap)? this->setWrapMode(QsciScintilla::WrapWord) :
             this->setWrapMode(QsciScintilla::WrapNone);
+
+
 }
 
 void LuaEditor::initLexer()
@@ -52,23 +54,34 @@ void LuaEditor::initLexer()
     QString funcFile = settings.value("funcfile").toString().toLatin1();
     settings.endGroup();
 
-//    if(autoComp)
-//    {
-//        this->setAutoCompletionSource(QsciScintilla::AcsAll);
-//        this->setAutoCompletionCaseSensitivity(true);
-//        this->setAutoCompletionShowSingle(true);
-//        this->setAutoCompletionFillupsEnabled(true);
-//        QsciAPIs apis(lexer);
-//        if(loadWordsFromFile(funcFile))
-//        {
-//            for(int x = 0; x <= completerEntries.count(); x++)
-//            {
-//                apis.add(completerEntries.at(x));
-//            }
-//        }
-//        apis.prepare();
-//        lexer->setAPIs(&apis);
-//    }
+    if(autoComp)
+    {
+        this->setAutoCompletionSource(QsciScintilla::AcsAll);
+        this->setAutoCompletionCaseSensitivity(false);
+        this->setAutoCompletionFillupsEnabled(true);
+        this->setAutoCompletionThreshold(2);
+        this->setAutoCompletionShowSingle(true);
+        this->setAutoCompletionFillupsEnabled(true);
+        QsciAPIs *apis = new QsciAPIs(lexer);
+        QFile f(funcFile);
+        if(!f.open(QFile::ReadOnly | QFile::Text))
+        {
+            QMessageBox::critical(0, "Unable to load file",
+                                  tr("Could not load keywords file.\nError: %1.").arg(f.errorString()),
+                                  QMessageBox::Ok, QMessageBox::NoButton);
+            return;
+        }
+
+        QTextStream stream(&f);
+        QString line = stream.readLine();
+        while(!line.isNull())
+        {
+            apis->add(line);
+            line = stream.readLine();
+        }
+        apis->prepare();
+        lexer->setAPIs(apis);
+    }
 }
 
 void LuaEditor::newFile()
@@ -214,25 +227,4 @@ void LuaEditor::keyPressEvent(QKeyEvent *event)
         default:
             QsciScintilla::keyPressEvent(event);
     }
-}
-
-bool LuaEditor::loadWordsFromFile(const QString &fileName)
-{
-    QFile f(fileName);
-    if(!f.open(QFile::ReadOnly | QFile::Text))
-    {
-        QMessageBox::critical(0, "Unable to load file",
-                              tr("Could not load keywords file.\nError: %1.").arg(f.errorString()),
-                              QMessageBox::Ok, QMessageBox::NoButton);
-        return false;
-    }
-
-    QTextStream stream(&f);
-    QString line = stream.readLine();
-    while(!line.isNull())
-    {
-        completerEntries << line.trimmed();
-        line = stream.readLine();
-    }
-    return false;
 }
