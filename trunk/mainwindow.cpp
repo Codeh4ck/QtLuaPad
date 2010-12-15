@@ -2,6 +2,8 @@
 #include "ui_mainwindow.h"
 #include "definitions.h"
 #include "options.h"
+#include "finddialog.h"
+#include "questcreator.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -288,4 +290,46 @@ void MainWindow::copy()
 void MainWindow::paste()
 {
     on_actionPaste_triggered();
+}
+
+void MainWindow::updateSettings(int tabWidth, bool _wrap, bool _brace, bool _fold)
+{
+    foreach(QMdiSubWindow *window, mdi->subWindowList())
+    {
+            LuaEditor *editor = qobject_cast<LuaEditor *>(window->widget());
+
+            (_wrap)? editor->setWrapMode(QsciScintilla::WrapWord) :
+                    editor->setWrapMode(QsciScintilla::WrapNone);
+            (_brace)? editor->setBraceMatching(QsciScintilla::StrictBraceMatch) :
+                    editor->setBraceMatching(QsciScintilla::NoBraceMatch);
+            (_fold)? editor->setFolding(QsciScintilla::BoxedTreeFoldStyle) :
+                    editor->setFolding(QsciScintilla::NoFoldStyle);
+            editor->setTabWidth(tabWidth);
+    }
+}
+
+void MainWindow::updateMdiView(int viewType)
+{
+    if(viewType == 1)
+        mdi->setViewMode(QMdiArea::TabbedView);
+    else
+        mdi->setViewMode(QMdiArea::SubWindowView);
+}
+
+void MainWindow::showFind()
+{
+    if(mdi->subWindowList().count() > 0)
+    {
+        FindDialog *dialog = new FindDialog(this);
+        dialog->showNormal();
+    } else
+        ui->statusBar->showMessage("No active window found to open the Find Dialog.", 4000);
+}
+
+void MainWindow::on_actionQuest_Creator_triggered()
+{
+    QuestCreator *creator = new QuestCreator(this);
+    mdi->addSubWindow(creator);
+    creator->setWindowTitle("Quest Creator");
+    creator->show();
 }

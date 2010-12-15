@@ -15,6 +15,12 @@ public:
    explicit Options(QWidget *parent = 0);
     ~Options();
 
+    static Options *getInstance()
+    {
+        static Options instance;
+        return &instance;
+    }
+
 private:
     Ui::Options *ui;
 
