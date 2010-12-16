@@ -29,7 +29,7 @@ FORMS    += mainwindow.ui \
     finddialog.ui \
     questcreator.ui
 
-LIBS += -lqscintilla2
+LIBS += -lqscintilla2 -lxml2
 
 RESOURCES += \
     icons/res_icon.qrc

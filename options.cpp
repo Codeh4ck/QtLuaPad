@@ -70,6 +70,6 @@ void Options::on_comboStyle_currentIndexChanged(QString )
 
 void Options::on_browseBtn_clicked()
 {
-    QString file = QFileDialog::getOpenFileName(0, "Select a functions file!", "", "Functions File (*.lff)");
+    QString file = QFileDialog::getOpenFileName(0, "Select a functions file!", "", "Functions File (*.xml)");
     ui->funcFile->setText(file);
 }

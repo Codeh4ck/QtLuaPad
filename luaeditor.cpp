@@ -3,6 +3,9 @@
 #include "Qsci/qsciapis.h"
 #include "definitions.h"
 
+#include <libxml/xmlmemory.h>
+#include <libxml/parser.h>
+
 LuaEditor::LuaEditor()
 {
     initLexer();
@@ -63,21 +66,31 @@ void LuaEditor::initLexer()
         this->setAutoCompletionShowSingle(true);
         this->setAutoCompletionFillupsEnabled(true);
         QsciAPIs *apis = new QsciAPIs(lexer);
-        QFile f(funcFile);
-        if(!f.open(QFile::ReadOnly | QFile::Text))
+        xmlDocPtr doc = xmlParseFile(funcFile.toLatin1());
+        if(!doc)
         {
-            QMessageBox::critical(0, "Unable to load file",
-                                  tr("Could not load keywords file.\nError: %1.").arg(f.errorString()),
+            QMessageBox::critical(NULL, "Unable to load file",
+                                  tr("Could not load keywords file. No such file or directory."),
                                   QMessageBox::Ok, QMessageBox::NoButton);
             return;
         }
 
-        QTextStream stream(&f);
-        QString line = stream.readLine();
-        while(!line.isNull())
+        xmlNodePtr root = xmlDocGetRootElement(doc);
+        if (xmlStrcmp(root->name, (const xmlChar*)"functions"))
         {
-            apis->add(line);
-            line = stream.readLine();
+            QMessageBox::critical(NULL, "Error", tr("Malformed functions file."));
+            return;
+        }
+        for (xmlNodePtr p = root->children; p; p = p->next)
+        {
+            if(p->type != XML_ELEMENT_NODE)
+                continue;
+
+            if(xmlStrcmp(p->name, (const xmlChar*)"function"))
+                continue;
+
+            QString func = QString((const char*)p->children->content);
+            apis->add(func);
         }
         apis->prepare();
         lexer->setAPIs(apis);
