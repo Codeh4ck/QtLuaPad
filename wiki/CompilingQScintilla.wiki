@@ -7,7 +7,7 @@
 2) Create a folder on desktop called <b>"QScintilla"</b> and extract the library into it. Then run Qt commandline. 
 
 3) Now, you'll have to change your directory to the <b>"Qt4"</b> folder which is located inside the <b>"QScintilla"</b> folder on desktop.<br/>
-<tt>You can change your directory by using the "cd" command. For intance: <b><i>cd C:/Users/Delirium/Desktop/QScintilla/Qt4</i></b></tt>
+<tt>You can change your directory by using the "cd" command.<br/>For intance: <b><i>cd C:/Users/Delirium/Desktop/QScintilla/Qt4</i></b></tt>
 
 4) Now that you changed your directory to the <b>"Qt4"</b> folder, run these commands: <br/>
 <tt>qmake qscintilla.pro</tt><br/>
