@@ -10,11 +10,11 @@
 <tt>You can change your directory by using the "cd" command.<br/>For intance: <b><i>cd C:/Users/Delirium/Desktop/QScintilla/Qt4</i></b></tt>
 
 4) Now that you changed your directory to the <b>"Qt4"</b> folder, run these commands: <br/>
-<tt>qmake qscintilla.pro</tt><br/>
-<tt>mingw32-make</tt><br/>
-<tt>mingw32-make install</tt>
+<b><i><tt>qmake qscintilla.pro</tt><br/></i></b>
+<b><i><tt>mingw32-make</tt><br/></i></b>
+<b><i><tt>mingw32-make install</tt></i></b>
 
 5) If your build was successful run this command to finalise it: <br/>
-<tt>copy %QTDIR%\lib\qscintilla2.dll %QTDIR%\bin</tt>
+<tt><b><i>copy %QTDIR%\lib\qscintilla2.dll %QTDIR%\bin</i></b></tt>
 
 6) Copy your qscintilla2.dll to your windows/system folder and you're done!
