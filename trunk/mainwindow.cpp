@@ -102,18 +102,15 @@ void MainWindow::openFile()
 
 LuaEditor *MainWindow::createMdiChild()
 {
-    LuaEditor *editor = new LuaEditor;
-    return editor;
+    return new LuaEditor();
 }
 
 LuaEditor *MainWindow::getActiveEditor()
 {
     QMdiSubWindow *window = mdi->activeSubWindow();
     if(window)
-    {
-        LuaEditor *L = qobject_cast<LuaEditor *>(window->widget());
-        return L;
-    }
+        return qobject_cast<LuaEditor *>(window->widget());
+
     return 0;
 }
 
@@ -321,6 +318,7 @@ void MainWindow::showFind()
     if(mdi->subWindowList().count() > 0)
     {
         FindDialog *dialog = new FindDialog(this);
+        dialog->setEditor(getActiveEditor());
         dialog->showNormal();
     } else
         ui->statusBar->showMessage("No active window found to open the Find Dialog.", 4000);

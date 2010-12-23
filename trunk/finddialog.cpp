@@ -2,6 +2,7 @@
 #include "ui_finddialog.h"
 #include "mainwindow.h"
 #include "luaeditor.h"
+#include "definitions.h"
 
 FindDialog::FindDialog(QWidget *parent) :
     QDialog(parent),
@@ -12,6 +13,17 @@ FindDialog::FindDialog(QWidget *parent) :
     ui->rdDown->setChecked(true);
 }
 
+void FindDialog::setEditor(LuaEditor* editor)
+{
+    if (d.editor != editor)
+        d.editor = editor;
+}
+
+LuaEditor* FindDialog::editor() const
+{
+    return d.editor;
+}
+
 FindDialog::~FindDialog()
 {
     delete ui;
@@ -19,12 +31,9 @@ FindDialog::~FindDialog()
 
 void FindDialog::on_pushButton_clicked()
 {
-    LuaEditor *editor = qobject_cast<LuaEditor*>(MainWindow::getInstance()->mdi
-                                                 ->activeSubWindow()
-                                                 ->widget());
-    if(editor)
-    {
-        editor->findFirst(ui->txtFind->text(), false, ui->cbCaseSensitive->isChecked(),
-                          ui->cbWholeWords->isChecked(), true, ui->rdDown->isChecked());
-    }
+    if (!d.editor)
+        return;
+
+    d.editor->findFirst(ui->txtFind->text(), false,
+                        ui->cbCaseSensitive->isChecked(), ui->cbWholeWords->isChecked(), true);
 }
