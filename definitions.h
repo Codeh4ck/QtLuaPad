@@ -18,8 +18,8 @@
 		if(!x)\
 		{\
 			std::stringstream ss;\
-			ss << "Assertaion to: " << #x << " failed. line: " << __LINE__ << ", file: " << __FILE__ << ". Continue?";\
-			uint32_t ret = QMessageBox::critical(NULL, tr("Error"), tr(ss.str().c_str()),\
+                        ss << "Asseration to: " << #x << " failed. line: " << __LINE__ << ", file: " << __FILE__ << ". Continue?";\
+                        uint32_t ret = QMessageBox::critical(NULL, QObject::tr("Error"), QObject::tr(ss.str().c_str()),\
 				QMessageBox::Ok | QMessageBox::Cancel);\
 			switch (ret)\
 			{\
@@ -35,17 +35,17 @@
 #define QTLUAPAD_WARNING(x, y)\
 	std::stringstream ss;\
 	ss << "[Warning - " << #x << "] " << #y << ".";\
-	QMessageBox::warning(NULL, tr("Warning"), tr(ss.str().c_str()));
+        QMessageBox::warning(NULL, QObject::tr("Warning"), QObject::tr(ss.str().c_str()));
 
 #define QTLUAPAD_ERROR(x, y)\
 	std::stringstream ss;\
 	ss << "[Error - " << #x << "] " << #y << ".";\
-	QMessageBox::critical(NULL, tr("Error"), tr(ss.str().c_str()));
+        QMessageBox::critical(NULL, QObject::tr("Error"), QObject::tr(ss.str().c_str()));
 
 #define QTLUAPAD_NOTICE(x, y)\
 	std::stringstream ss;\
 	ss << "[Notice - " << #x << "] " << #y << ".";\
-	QMessageBox::information(NULL, tr("Notice"), tr(ss.str().c_str()));
+        QMessageBox::information(NULL, QObject::tr("Notice"), QObject::tr(ss.str().c_str()));
 
 template<typename __T>
 inline void*
