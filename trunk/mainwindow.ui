@@ -68,14 +68,29 @@
     <property name="title">
      <string>About</string>
     </property>
+    <widget class="QMenu" name="menuContact">
+     <property name="title">
+      <string>Contact</string>
+     </property>
+     <addaction name="actionDelirium"/>
+     <addaction name="actionFallen"/>
+    </widget>
     <addaction name="actionQtLuaPad"/>
     <addaction name="actionOtland"/>
+    <addaction name="menuContact"/>
    </widget>
    <widget class="QMenu" name="menuTools">
     <property name="title">
      <string>Tools</string>
     </property>
+    <widget class="QMenu" name="menuOpen_Tibia_Tools">
+     <property name="title">
+      <string>Open Tibia Tools</string>
+     </property>
+     <addaction name="actionQuest_Creator"/>
+    </widget>
     <addaction name="actionDebuger"/>
+    <addaction name="menuOpen_Tibia_Tools"/>
     <addaction name="actionOptions"/>
    </widget>
    <addaction name="menuFile"/>
@@ -265,6 +280,9 @@
    <property name="text">
     <string>Find</string>
    </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
   </action>
   <action name="actionFind_Replace">
    <property name="icon">
@@ -273,6 +291,9 @@
    </property>
    <property name="text">
     <string>Find &amp; Replace</string>
+   </property>
+   <property name="shortcut">
+    <string>Shift+F</string>
    </property>
   </action>
   <action name="actionDebuger">
@@ -290,7 +311,7 @@
   <action name="actionOptions">
    <property name="icon">
     <iconset resource="icons/res_icon.qrc">
-     <normaloff>:/session_edit.png</normaloff>:/session_edit.png</iconset>
+     <normaloff>:/cog.ico</normaloff>:/cog.ico</iconset>
    </property>
    <property name="text">
     <string>Options</string>
@@ -321,6 +342,33 @@
    </property>
    <property name="shortcut">
     <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionQuest_Creator">
+   <property name="icon">
+    <iconset resource="icons/res_icon.qrc">
+     <normaloff>:/font_edit.png</normaloff>:/font_edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Quest Creator</string>
+   </property>
+  </action>
+  <action name="actionDelirium">
+   <property name="icon">
+    <iconset resource="icons/res_icon.qrc">
+     <normaloff>:/session_edit.png</normaloff>:/session_edit.png</iconset>
+   </property>
+   <property name="text">
+    <string>Delirium</string>
+   </property>
+  </action>
+  <action name="actionFallen">
+   <property name="icon">
+    <iconset resource="icons/res_icon.qrc">
+     <normaloff>:/session.png</normaloff>:/session.png</iconset>
+   </property>
+   <property name="text">
+    <string>Fallen</string>
    </property>
   </action>
  </widget>

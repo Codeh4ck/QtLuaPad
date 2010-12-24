@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Thu 30. Sep 13:26:18 2010
+** Created: Fri 24. Dec 02:49:10 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -47,13 +47,18 @@ public:
     QAction *actionOptions;
     QAction *actionQtLuaPad;
     QAction *actionOtland;
+    QAction *actionQuest_Creator;
+    QAction *actionDelirium;
+    QAction *actionFallen;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menuFile;
     QMenu *menuEdit;
     QMenu *menuDelete;
     QMenu *menuAbout;
+    QMenu *menuContact;
     QMenu *menuTools;
+    QMenu *menuOpen_Tibia_Tools;
     QToolBar *mainToolBar;
     QStatusBar *statusBar;
 
@@ -151,7 +156,7 @@ public:
         actionOptions = new QAction(MainWindow);
         actionOptions->setObjectName(QString::fromUtf8("actionOptions"));
         QIcon icon17;
-        icon17.addFile(QString::fromUtf8(":/session_edit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        icon17.addFile(QString::fromUtf8(":/cog.ico"), QSize(), QIcon::Normal, QIcon::Off);
         actionOptions->setIcon(icon17);
         actionQtLuaPad = new QAction(MainWindow);
         actionQtLuaPad->setObjectName(QString::fromUtf8("actionQtLuaPad"));
@@ -163,6 +168,21 @@ public:
         QIcon icon19;
         icon19.addFile(QString::fromUtf8(":/refresh.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionOtland->setIcon(icon19);
+        actionQuest_Creator = new QAction(MainWindow);
+        actionQuest_Creator->setObjectName(QString::fromUtf8("actionQuest_Creator"));
+        QIcon icon20;
+        icon20.addFile(QString::fromUtf8(":/font_edit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionQuest_Creator->setIcon(icon20);
+        actionDelirium = new QAction(MainWindow);
+        actionDelirium->setObjectName(QString::fromUtf8("actionDelirium"));
+        QIcon icon21;
+        icon21.addFile(QString::fromUtf8(":/session_edit.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionDelirium->setIcon(icon21);
+        actionFallen = new QAction(MainWindow);
+        actionFallen->setObjectName(QString::fromUtf8("actionFallen"));
+        QIcon icon22;
+        icon22.addFile(QString::fromUtf8(":/session.png"), QSize(), QIcon::Normal, QIcon::Off);
+        actionFallen->setIcon(icon22);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
@@ -177,8 +197,12 @@ public:
         menuDelete->setObjectName(QString::fromUtf8("menuDelete"));
         menuAbout = new QMenu(menuBar);
         menuAbout->setObjectName(QString::fromUtf8("menuAbout"));
+        menuContact = new QMenu(menuAbout);
+        menuContact->setObjectName(QString::fromUtf8("menuContact"));
         menuTools = new QMenu(menuBar);
         menuTools->setObjectName(QString::fromUtf8("menuTools"));
+        menuOpen_Tibia_Tools = new QMenu(menuTools);
+        menuOpen_Tibia_Tools->setObjectName(QString::fromUtf8("menuOpen_Tibia_Tools"));
         MainWindow->setMenuBar(menuBar);
         mainToolBar = new QToolBar(MainWindow);
         mainToolBar->setObjectName(QString::fromUtf8("mainToolBar"));
@@ -217,8 +241,13 @@ public:
         menuDelete->addAction(actionDelete_Selected);
         menuAbout->addAction(actionQtLuaPad);
         menuAbout->addAction(actionOtland);
+        menuAbout->addAction(menuContact->menuAction());
+        menuContact->addAction(actionDelirium);
+        menuContact->addAction(actionFallen);
         menuTools->addAction(actionDebuger);
+        menuTools->addAction(menuOpen_Tibia_Tools->menuAction());
         menuTools->addAction(actionOptions);
+        menuOpen_Tibia_Tools->addAction(actionQuest_Creator);
 
         retranslateUi(MainWindow);
 
@@ -254,7 +283,9 @@ public:
         actionSelect_All->setText(QApplication::translate("MainWindow", "Select All", 0, QApplication::UnicodeUTF8));
         actionSelect_All->setShortcut(QApplication::translate("MainWindow", "Ctrl+A", 0, QApplication::UnicodeUTF8));
         actionFind->setText(QApplication::translate("MainWindow", "Find", 0, QApplication::UnicodeUTF8));
+        actionFind->setShortcut(QApplication::translate("MainWindow", "Ctrl+F", 0, QApplication::UnicodeUTF8));
         actionFind_Replace->setText(QApplication::translate("MainWindow", "Find & Replace", 0, QApplication::UnicodeUTF8));
+        actionFind_Replace->setShortcut(QApplication::translate("MainWindow", "Shift+F", 0, QApplication::UnicodeUTF8));
         actionDebuger->setText(QApplication::translate("MainWindow", "Debuger", 0, QApplication::UnicodeUTF8));
         actionDebuger->setShortcut(QApplication::translate("MainWindow", "Ctrl+D", 0, QApplication::UnicodeUTF8));
         actionOptions->setText(QApplication::translate("MainWindow", "Options", 0, QApplication::UnicodeUTF8));
@@ -263,11 +294,16 @@ public:
         actionQtLuaPad->setShortcut(QApplication::translate("MainWindow", "Ctrl+Q", 0, QApplication::UnicodeUTF8));
         actionOtland->setText(QApplication::translate("MainWindow", "Otland", 0, QApplication::UnicodeUTF8));
         actionOtland->setShortcut(QApplication::translate("MainWindow", "Ctrl+I", 0, QApplication::UnicodeUTF8));
+        actionQuest_Creator->setText(QApplication::translate("MainWindow", "Quest Creator", 0, QApplication::UnicodeUTF8));
+        actionDelirium->setText(QApplication::translate("MainWindow", "Delirium", 0, QApplication::UnicodeUTF8));
+        actionFallen->setText(QApplication::translate("MainWindow", "Fallen", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));
         menuDelete->setTitle(QApplication::translate("MainWindow", "Delete", 0, QApplication::UnicodeUTF8));
         menuAbout->setTitle(QApplication::translate("MainWindow", "About", 0, QApplication::UnicodeUTF8));
+        menuContact->setTitle(QApplication::translate("MainWindow", "Contact", 0, QApplication::UnicodeUTF8));
         menuTools->setTitle(QApplication::translate("MainWindow", "Tools", 0, QApplication::UnicodeUTF8));
+        menuOpen_Tibia_Tools->setTitle(QApplication::translate("MainWindow", "Open Tibia Tools", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };

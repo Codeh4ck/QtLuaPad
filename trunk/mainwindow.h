@@ -40,6 +40,12 @@ protected:
     void closeEvent(QCloseEvent *event);
 
 private slots:
+    void on_actionFind_Replace_triggered();
+    void on_actionFind_triggered();
+    void on_actionFallen_triggered();
+    void on_actionDelirium_triggered();
+    void on_actionDebuger_triggered();
+    void on_actionPrint_triggered();
     void on_actionQuest_Creator_triggered();
     void on_actionOptions_triggered();
     void on_actionQtLuaPad_triggered();

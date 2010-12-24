@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>347</width>
+    <width>345</width>
     <height>211</height>
    </rect>
   </property>
@@ -46,7 +46,7 @@
   <widget class="QLabel" name="label">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>8</x>
      <y>62</y>
      <width>81</width>
      <height>16</height>
@@ -59,7 +59,7 @@
   <widget class="QRadioButton" name="rdTabbedView">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>88</x>
      <y>52</y>
      <width>82</width>
      <height>17</height>
@@ -72,7 +72,7 @@
   <widget class="QRadioButton" name="rdWindowedView">
    <property name="geometry">
     <rect>
-     <x>90</x>
+     <x>88</x>
      <y>72</y>
      <width>101</width>
      <height>17</height>
@@ -111,7 +111,7 @@
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
+     <x>8</x>
      <y>12</y>
      <width>71</width>
      <height>16</height>
@@ -160,7 +160,7 @@
   <widget class="Line" name="line_4">
    <property name="geometry">
     <rect>
-     <x>190</x>
+     <x>186</x>
      <y>12</y>
      <width>16</width>
      <height>161</height>
@@ -199,7 +199,7 @@
   <widget class="Line" name="line_5">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>207</x>
      <y>80</y>
      <width>118</width>
      <height>3</height>
@@ -212,7 +212,7 @@
   <widget class="QCheckBox" name="cbBraceMatch">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>207</x>
      <y>90</y>
      <width>121</width>
      <height>17</height>
@@ -238,7 +238,7 @@
   <widget class="QCheckBox" name="cbCodeFolding">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>207</x>
      <y>123</y>
      <width>121</width>
      <height>17</height>
@@ -251,7 +251,7 @@
   <widget class="Line" name="line_7">
    <property name="geometry">
     <rect>
-     <x>210</x>
+     <x>207</x>
      <y>150</y>
      <width>118</width>
      <height>3</height>
@@ -264,7 +264,7 @@
   <widget class="QLabel" name="label_4">
    <property name="geometry">
     <rect>
-     <x>223</x>
+     <x>220</x>
      <y>160</y>
      <width>91</width>
      <height>16</height>
@@ -277,7 +277,7 @@
   <widget class="QComboBox" name="comboStyle">
    <property name="geometry">
     <rect>
-     <x>212</x>
+     <x>209</x>
      <y>180</y>
      <width>121</width>
      <height>22</height>
@@ -317,7 +317,7 @@
   <widget class="QLabel" name="label_5">
    <property name="geometry">
     <rect>
-     <x>207</x>
+     <x>205</x>
      <y>30</y>
      <width>91</width>
      <height>16</height>
@@ -330,7 +330,7 @@
   <widget class="QLineEdit" name="funcFile">
    <property name="geometry">
     <rect>
-     <x>207</x>
+     <x>205</x>
      <y>50</y>
      <width>105</width>
      <height>20</height>
@@ -340,7 +340,7 @@
   <widget class="QToolButton" name="browseBtn">
    <property name="geometry">
     <rect>
-     <x>317</x>
+     <x>315</x>
      <y>50</y>
      <width>25</width>
      <height>19</height>
@@ -353,9 +353,9 @@
   <widget class="QCheckBox" name="cbAutoComplete">
    <property name="geometry">
     <rect>
-     <x>207</x>
+     <x>205</x>
      <y>10</y>
-     <width>136</width>
+     <width>139</width>
      <height>17</height>
     </rect>
    </property>
