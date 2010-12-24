@@ -4,6 +4,7 @@
 #include "options.h"
 #include "finddialog.h"
 #include "questcreator.h"
+#include "about.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -52,7 +53,7 @@ void MainWindow::closeEvent(QCloseEvent *event)
                     tr("If you close the editor "
                        "without saving your scripts, "
                        "all changes will be lost. "
-                       "Would you like to proceed?"),
+                       "Would you like to toceed?"),
                     QMessageBox::Yes | QMessageBox::No,
                     QMessageBox::No);
         if(ret == QMessageBox::Yes)
@@ -102,15 +103,18 @@ void MainWindow::openFile()
 
 LuaEditor *MainWindow::createMdiChild()
 {
-    return new LuaEditor();
+    LuaEditor *editor = new LuaEditor;
+    return editor;
 }
 
 LuaEditor *MainWindow::getActiveEditor()
 {
     QMdiSubWindow *window = mdi->activeSubWindow();
     if(window)
-        return qobject_cast<LuaEditor *>(window->widget());
-
+    {
+        LuaEditor *L = qobject_cast<LuaEditor *>(window->widget());
+        return L;
+    }
     return 0;
 }
 
@@ -253,19 +257,9 @@ void MainWindow::zoomDef()
 
 void MainWindow::on_actionQtLuaPad_triggered()
 {
-    QMessageBox::about(this, "About QtLuaPad",
-                       tr("<h2><strong>QtLuaPad</strong></h2>"
-                          "<h4>An open source LUA script editor.</h4>"
-                          "<br />"
-                          "<b>Author:</b> Nikolas S. Andreou."
-                          "<br />"
-                          "<b>Version:</b> %1."
-                          "<br />"
-                          "<b>Licence:</b> GPL v3."
-                          "<br />"
-                          "<b>Website:</b> <a href='http://otland.net/'>Otland.</a>"
-                          "<br />"
-                          "<b>Icons made by:</b> Unknown creator.").arg(APPVRSN));
+    About *about = new About(this);
+    about->showNormal();
+    about->setWindowTitle("About QtLuaPad");
 }
 
 void MainWindow::on_actionOptions_triggered()
@@ -326,8 +320,40 @@ void MainWindow::showFind()
 
 void MainWindow::on_actionQuest_Creator_triggered()
 {
-    QuestCreator *creator = new QuestCreator(this);
-    mdi->addSubWindow(creator);
-    creator->setWindowTitle("Quest Creator");
-    creator->show();
+//    QuestCreator *creator = new QuestCreator(this);
+//    mdi->addSubWindow(creator);
+//    creator->setWindowTitle("Quest Creator");
+//    creator->setWindowState(Qt::WindowMaximized);
+//    creator->show();
+    ui->statusBar->showMessage("Not implemented yet.", 4000);
+}
+
+void MainWindow::on_actionPrint_triggered()
+{
+    ui->statusBar->showMessage("Not implemented yet.", 4000);
+}
+
+void MainWindow::on_actionDebuger_triggered()
+{
+    ui->statusBar->showMessage("Not implemented yet.", 4000);
+}
+
+void MainWindow::on_actionDelirium_triggered()
+{
+    QDesktopServices::openUrl(QUrl(DELIRIUMSPROF));
+}
+
+void MainWindow::on_actionFallen_triggered()
+{
+    QDesktopServices::openUrl(QUrl(FALLENSPROF));
+}
+
+void MainWindow::on_actionFind_triggered()
+{
+    showFind();
+}
+
+void MainWindow::on_actionFind_Replace_triggered()
+{
+    ui->statusBar->showMessage("Not implemented yet.", 4000);
 }

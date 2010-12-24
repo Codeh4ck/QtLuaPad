@@ -21,15 +21,18 @@ public:
 
 private:
     Ui::FindDialog *ui;
-
-private slots:
-    void on_pushButton_clicked();
+    bool foundFirst;
+    QString oldText;
 
 protected:
     struct FindDialog_p
     {
         LuaEditor* editor;
     } d;
+
+private slots:
+    void on_pushButton_clicked();
+    void on_findNext_clicked();
 };
 
 #endif // FINDDIALOG_H

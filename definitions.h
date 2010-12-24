@@ -5,46 +5,48 @@
 #define APPNAME "QtLuaPad"
 #define ORGNAME "Delirium"
 #define ORGURL "http://otland.net/forum.php"
+#define FALLENSPROF "http://otland.net/members/Fallen"
+#define DELIRIUMSPROF "http://otland.net/members/Delirium"
 
 #ifdef assert
-	#undef assert
+        #undef assert
 #endif
 
 #include <sstream>
 #include <stdint.h>
 
 #ifdef qApp
-	#define assert(x)\
-		if(!x)\
-		{\
-			std::stringstream ss;\
+        #define assert(x)\
+                if(!x)\
+                {\
+                        std::stringstream ss;\
                         ss << "Asseration to: " << #x << " failed. line: " << __LINE__ << ", file: " << __FILE__ << ". Continue?";\
                         uint32_t ret = QMessageBox::critical(NULL, QObject::tr("Error"), QObject::tr(ss.str().c_str()),\
-				QMessageBox::Ok | QMessageBox::Cancel);\
-			switch (ret)\
-			{\
-				case QMessageBox::Ok:\
-					break;\
-				\
-				case QMessageBox::Cancel:\
-					qApp->quit();\
-			}\
-		}
+                                QMessageBox::Ok | QMessageBox::Cancel);\
+                        switch (ret)\
+                        {\
+                                case QMessageBox::Ok:\
+                                        break;\
+                                \
+                                case QMessageBox::Cancel:\
+                                        qApp->quit();\
+                        }\
+                }
 #endif
 
 #define QTLUAPAD_WARNING(x, y)\
-	std::stringstream ss;\
-	ss << "[Warning - " << #x << "] " << #y << ".";\
+        std::stringstream ss;\
+        ss << "[Warning - " << #x << "] " << #y << ".";\
         QMessageBox::warning(NULL, QObject::tr("Warning"), QObject::tr(ss.str().c_str()));
 
 #define QTLUAPAD_ERROR(x, y)\
-	std::stringstream ss;\
-	ss << "[Error - " << #x << "] " << #y << ".";\
+        std::stringstream ss;\
+        ss << "[Error - " << #x << "] " << #y << ".";\
         QMessageBox::critical(NULL, QObject::tr("Error"), QObject::tr(ss.str().c_str()));
 
 #define QTLUAPAD_NOTICE(x, y)\
-	std::stringstream ss;\
-	ss << "[Notice - " << #x << "] " << #y << ".";\
+        std::stringstream ss;\
+        ss << "[Notice - " << #x << "] " << #y << ".";\
         QMessageBox::information(NULL, QObject::tr("Notice"), QObject::tr(ss.str().c_str()));
 
 template<typename __T>

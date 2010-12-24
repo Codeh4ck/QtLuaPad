@@ -15,19 +15,22 @@ SOURCES += main.cpp\
     luaeditor.cpp \
     options.cpp \
     finddialog.cpp \
-    questcreator.cpp
+    questcreator.cpp \
+    about.cpp
 
 HEADERS  += mainwindow.h \
     luaeditor.h \
     definitions.h \
     options.h \
     finddialog.h \
-    questcreator.h
+    questcreator.h \
+    about.h
 
 FORMS    += mainwindow.ui \
     options.ui \
     finddialog.ui \
-    questcreator.ui
+    questcreator.ui \
+    about.ui
 
 LIBS += -lqscintilla2 -lxml2
 

@@ -18,12 +18,11 @@ int main(int argc, char *argv[])
     QApplication::setApplicationName(APPNAME);
     QApplication::setApplicationVersion(APPVRSN);
 
-    // Simple hack to create a single instance application.
+    // Simple trick to create a single instance application.
     QSharedMemory sharedMemory("QtLuaPad");
     if (sharedMemory.create(1) && sharedMemory.error() != QSharedMemory::AlreadyExists)
     {
         w.show();
-
     }
     else
         QMessageBox::critical(0, "Warning!", "Application is already running!");

@@ -33,8 +33,6 @@ LuaEditor::LuaEditor()
             this->setBraceMatching(QsciScintilla::NoBraceMatch);
     (wrap)? this->setWrapMode(QsciScintilla::WrapWord) :
             this->setWrapMode(QsciScintilla::WrapNone);
-
-
 }
 
 void LuaEditor::initLexer()
@@ -69,7 +67,7 @@ void LuaEditor::initLexer()
         xmlDocPtr doc = xmlParseFile(funcFile.toLatin1());
         if(!doc)
         {
-            QMessageBox::critical(NULL, "Unable to load file",
+            QMessageBox::critical(NULL, "Unable to load keywords!",
                                   tr("Could not load keywords file. No such file or directory."),
                                   QMessageBox::Ok, QMessageBox::NoButton);
             return;

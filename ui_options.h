@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'options.ui'
 **
-** Created: Fri 1. Oct 01:54:12 2010
+** Created: Fri 24. Dec 03:25:24 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -61,7 +61,7 @@ public:
     {
         if (Options->objectName().isEmpty())
             Options->setObjectName(QString::fromUtf8("Options"));
-        Options->resize(347, 211);
+        Options->resize(345, 211);
         QIcon icon;
         icon.addFile(QString::fromUtf8(":/winicon.png"), QSize(), QIcon::Normal, QIcon::Off);
         Options->setWindowIcon(icon);
@@ -73,13 +73,13 @@ public:
         pushButton_2->setGeometry(QRect(100, 180, 75, 23));
         label = new QLabel(Options);
         label->setObjectName(QString::fromUtf8("label"));
-        label->setGeometry(QRect(10, 62, 81, 16));
+        label->setGeometry(QRect(8, 62, 81, 16));
         rdTabbedView = new QRadioButton(Options);
         rdTabbedView->setObjectName(QString::fromUtf8("rdTabbedView"));
-        rdTabbedView->setGeometry(QRect(90, 52, 82, 17));
+        rdTabbedView->setGeometry(QRect(88, 52, 82, 17));
         rdWindowedView = new QRadioButton(Options);
         rdWindowedView->setObjectName(QString::fromUtf8("rdWindowedView"));
-        rdWindowedView->setGeometry(QRect(90, 72, 101, 17));
+        rdWindowedView->setGeometry(QRect(88, 72, 101, 17));
         line = new QFrame(Options);
         line->setObjectName(QString::fromUtf8("line"));
         line->setGeometry(QRect(40, 98, 118, 3));
@@ -92,7 +92,7 @@ public:
         line_2->setFrameShadow(QFrame::Sunken);
         label_2 = new QLabel(Options);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(10, 12, 71, 16));
+        label_2->setGeometry(QRect(8, 12, 71, 16));
         programmer = new QLineEdit(Options);
         programmer->setObjectName(QString::fromUtf8("programmer"));
         programmer->setGeometry(QRect(80, 11, 101, 20));
@@ -106,7 +106,7 @@ public:
         line_3->setFrameShadow(QFrame::Sunken);
         line_4 = new QFrame(Options);
         line_4->setObjectName(QString::fromUtf8("line_4"));
-        line_4->setGeometry(QRect(190, 12, 16, 161));
+        line_4->setGeometry(QRect(186, 12, 16, 161));
         line_4->setFrameShape(QFrame::VLine);
         line_4->setFrameShadow(QFrame::Sunken);
         label_3 = new QLabel(Options);
@@ -118,12 +118,12 @@ public:
         spinTab->setMaximum(20);
         line_5 = new QFrame(Options);
         line_5->setObjectName(QString::fromUtf8("line_5"));
-        line_5->setGeometry(QRect(210, 80, 118, 3));
+        line_5->setGeometry(QRect(207, 80, 118, 3));
         line_5->setFrameShape(QFrame::HLine);
         line_5->setFrameShadow(QFrame::Sunken);
         cbBraceMatch = new QCheckBox(Options);
         cbBraceMatch->setObjectName(QString::fromUtf8("cbBraceMatch"));
-        cbBraceMatch->setGeometry(QRect(210, 90, 121, 17));
+        cbBraceMatch->setGeometry(QRect(207, 90, 121, 17));
         line_6 = new QFrame(Options);
         line_6->setObjectName(QString::fromUtf8("line_6"));
         line_6->setGeometry(QRect(210, 113, 118, 3));
@@ -131,30 +131,30 @@ public:
         line_6->setFrameShadow(QFrame::Sunken);
         cbCodeFolding = new QCheckBox(Options);
         cbCodeFolding->setObjectName(QString::fromUtf8("cbCodeFolding"));
-        cbCodeFolding->setGeometry(QRect(210, 123, 121, 17));
+        cbCodeFolding->setGeometry(QRect(207, 123, 121, 17));
         line_7 = new QFrame(Options);
         line_7->setObjectName(QString::fromUtf8("line_7"));
-        line_7->setGeometry(QRect(210, 150, 118, 3));
+        line_7->setGeometry(QRect(207, 150, 118, 3));
         line_7->setFrameShape(QFrame::HLine);
         line_7->setFrameShadow(QFrame::Sunken);
         label_4 = new QLabel(Options);
         label_4->setObjectName(QString::fromUtf8("label_4"));
-        label_4->setGeometry(QRect(223, 160, 91, 16));
+        label_4->setGeometry(QRect(220, 160, 91, 16));
         comboStyle = new QComboBox(Options);
         comboStyle->setObjectName(QString::fromUtf8("comboStyle"));
-        comboStyle->setGeometry(QRect(212, 180, 121, 22));
+        comboStyle->setGeometry(QRect(209, 180, 121, 22));
         label_5 = new QLabel(Options);
         label_5->setObjectName(QString::fromUtf8("label_5"));
-        label_5->setGeometry(QRect(207, 30, 91, 16));
+        label_5->setGeometry(QRect(205, 30, 91, 16));
         funcFile = new QLineEdit(Options);
         funcFile->setObjectName(QString::fromUtf8("funcFile"));
-        funcFile->setGeometry(QRect(207, 50, 105, 20));
+        funcFile->setGeometry(QRect(205, 50, 105, 20));
         browseBtn = new QToolButton(Options);
         browseBtn->setObjectName(QString::fromUtf8("browseBtn"));
-        browseBtn->setGeometry(QRect(317, 50, 25, 19));
+        browseBtn->setGeometry(QRect(315, 50, 25, 19));
         cbAutoComplete = new QCheckBox(Options);
         cbAutoComplete->setObjectName(QString::fromUtf8("cbAutoComplete"));
-        cbAutoComplete->setGeometry(QRect(207, 10, 136, 17));
+        cbAutoComplete->setGeometry(QRect(205, 10, 139, 17));
 
         retranslateUi(Options);
 
