@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'about.ui'
 **
-** Created: Thu 23. Dec 05:41:05 2010
+** Created: Fri 24. Dec 03:39:51 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -29,26 +29,30 @@ public:
     QTextEdit *textEdit;
     QLabel *label_2;
     QPushButton *closeWindow;
+    QLabel *label_3;
 
     void setupUi(QDialog *About)
     {
         if (About->objectName().isEmpty())
             About->setObjectName(QString::fromUtf8("About"));
         About->setWindowModality(Qt::ApplicationModal);
-        About->resize(334, 393);
+        About->resize(334, 442);
         label = new QLabel(About);
         label->setObjectName(QString::fromUtf8("label"));
         label->setGeometry(QRect(12, 10, 315, 81));
         textEdit = new QTextEdit(About);
         textEdit->setObjectName(QString::fromUtf8("textEdit"));
-        textEdit->setGeometry(QRect(7, 132, 323, 221));
+        textEdit->setGeometry(QRect(7, 182, 323, 221));
         textEdit->setReadOnly(true);
         label_2 = new QLabel(About);
         label_2->setObjectName(QString::fromUtf8("label_2"));
-        label_2->setGeometry(QRect(12, 110, 231, 16));
+        label_2->setGeometry(QRect(12, 160, 231, 16));
         closeWindow = new QPushButton(About);
         closeWindow->setObjectName(QString::fromUtf8("closeWindow"));
-        closeWindow->setGeometry(QRect(58, 360, 221, 23));
+        closeWindow->setGeometry(QRect(58, 410, 221, 23));
+        label_3 = new QLabel(About);
+        label_3->setObjectName(QString::fromUtf8("label_3"));
+        label_3->setGeometry(QRect(8, 98, 321, 51));
 
         retranslateUi(About);
 
@@ -102,6 +106,14 @@ public:
 "</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
 "<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:8pt; font-weight:600;\">QtLuaPad is licensed under the GNU GPL:</span></p></body></html>", 0, QApplication::UnicodeUTF8));
         closeWindow->setText(QApplication::translate("About", "Close Window", 0, QApplication::UnicodeUTF8));
+        label_3->setText(QApplication::translate("About", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:'MS Shell Dlg 2'; font-size:8.25pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600; color:#ff0000;\">Version:</span><span style=\" font-size:10pt;\"> </span><span style=\" font-size:10pt; font-weight:600; color:#00aa00;\">1.0</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600; color:#ff0000;\">Authors:</span><span style=\" font-size:10pt;\"> </span><span style=\" font-size:10pt; font-weight:600; color:#00aa7f;\">Delirium</span><span style=\" font-size:10pt;\">"
+                        ", </span><span style=\" font-size:10pt; font-weight:600;\">Fallen</span></p>\n"
+"<p style=\" margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><span style=\" font-size:10pt; font-weight:600; color:#ff0000;\">SVN Repository:</span><span style=\" font-size:10pt;\"> </span><a href=\"http://code.google.com/p/qtluapad/\"><span style=\" font-size:10pt; text-decoration: underline; color:#0000ff;\">http://code.google.com/p/qtluapad/</span></a></p></body></html>", 0, QApplication::UnicodeUTF8));
     } // retranslateUi
 
 };
