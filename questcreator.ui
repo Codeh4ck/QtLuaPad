@@ -1,149 +1,457 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
  <class>QuestCreator</class>
- <widget class="QMainWindow" name="QuestCreator">
+ <widget class="QDialog" name="QuestCreator">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>417</width>
-    <height>373</height>
+    <width>521</width>
+    <height>480</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>MainWindow</string>
+   <string>Quest Creator</string>
   </property>
-  <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+  <widget class="QGroupBox" name="XMLSetupGroup">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>5</y>
+     <width>501</width>
+     <height>111</height>
+    </rect>
+   </property>
+   <property name="title">
+    <string>XML Setup</string>
+   </property>
+   <widget class="QLabel" name="ItemIDLabel">
     <property name="geometry">
      <rect>
-      <x>14</x>
-      <y>10</y>
-      <width>67</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Quest Name:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="questName">
-    <property name="geometry">
-     <rect>
-      <x>87</x>
-      <y>8</y>
-      <width>121</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="statusTip">
-     <string>Enter the name of the quest here.</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_2">
-    <property name="geometry">
-     <rect>
-      <x>14</x>
-      <y>40</y>
-      <width>46</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Action Id:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_3">
-    <property name="geometry">
-     <rect>
-      <x>290</x>
-      <y>40</y>
-      <width>46</width>
-      <height>13</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Item Id:</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="label_4">
-    <property name="geometry">
-     <rect>
-      <x>150</x>
-      <y>40</y>
+      <x>10</x>
+      <y>22</y>
       <width>61</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Unique Id:</string>
+     <string>Item ID:</string>
     </property>
    </widget>
-   <widget class="QLabel" name="label_5">
+   <widget class="QLabel" name="UIDLabel">
     <property name="geometry">
      <rect>
-      <x>221</x>
-      <y>10</y>
-      <width>91</width>
+      <x>10</x>
+      <y>52</y>
+      <width>61</width>
       <height>16</height>
      </rect>
     </property>
     <property name="text">
-     <string>Quest Storage Id:</string>
+     <string>Unique ID:</string>
     </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox">
+   <widget class="QLabel" name="AIDLabel">
     <property name="geometry">
      <rect>
-      <x>320</x>
-      <y>8</y>
-      <width>71</width>
+      <x>10</x>
+      <y>82</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Action ID:</string>
+    </property>
+   </widget>
+   <widget class="QSpinBox" name="ItemIDSpin">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>20</y>
+      <width>101</width>
       <height>22</height>
      </rect>
     </property>
+    <property name="minimum">
+     <number>100</number>
+    </property>
+    <property name="maximum">
+     <number>13000</number>
+    </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_2">
+   <widget class="QSpinBox" name="UIDSpin">
     <property name="geometry">
      <rect>
-      <x>73</x>
-      <y>35</y>
-      <width>71</width>
+      <x>80</x>
+      <y>50</y>
+      <width>101</width>
       <height>22</height>
      </rect>
     </property>
+    <property name="minimum">
+     <number>1000</number>
+    </property>
+    <property name="maximum">
+     <number>65535</number>
+    </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_3">
+   <widget class="QSpinBox" name="AIDSpin">
     <property name="geometry">
      <rect>
-      <x>209</x>
-      <y>35</y>
-      <width>71</width>
+      <x>80</x>
+      <y>80</y>
+      <width>101</width>
       <height>22</height>
      </rect>
     </property>
+    <property name="minimum">
+     <number>100</number>
+    </property>
+    <property name="maximum">
+     <number>65535</number>
+    </property>
    </widget>
-   <widget class="QSpinBox" name="spinBox_4">
+   <widget class="QLabel" name="FileNameLabel">
     <property name="geometry">
      <rect>
-      <x>339</x>
-      <y>37</y>
-      <width>71</width>
-      <height>22</height>
+      <x>200</x>
+      <y>22</y>
+      <width>51</width>
+      <height>16</height>
      </rect>
+    </property>
+    <property name="text">
+     <string>File name:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="SavePathLabel">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>52</y>
+      <width>51</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Save path:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="FileNameEdit">
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>20</y>
+      <width>231</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="SavePathEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>260</x>
+      <y>50</y>
+      <width>151</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="BrowsePathButton">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>48</y>
+      <width>75</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Browse...</string>
     </property>
    </widget>
   </widget>
-  <widget class="QMenuBar" name="menubar">
+  <widget class="QGroupBox" name="QuestSetupGroup">
    <property name="geometry">
     <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>417</width>
-     <height>21</height>
+     <x>10</x>
+     <y>120</y>
+     <width>501</width>
+     <height>291</height>
     </rect>
    </property>
+   <property name="title">
+    <string>Quest Setup</string>
+   </property>
+   <widget class="QLabel" name="StorageKeyLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Storage key:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="SuccessMessageLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Message on success:</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="FailureMessageLabel">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>80</y>
+      <width>121</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Message on failure:</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="ItemsInContainer">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>112</y>
+      <width>121</width>
+      <height>18</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Items in container?</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="ContainerIDLabel">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>112</y>
+      <width>71</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Container ID:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="ContainerIDEdit">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>110</y>
+      <width>261</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1988</string>
+    </property>
+   </widget>
+   <widget class="QGroupBox" name="ItemsListGroup">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>481</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <property name="title">
+     <string>Items</string>
+    </property>
+    <widget class="QTreeWidget" name="ItemsList">
+     <property name="geometry">
+      <rect>
+       <x>10</x>
+       <y>20</y>
+       <width>251</width>
+       <height>111</height>
+      </rect>
+     </property>
+     <column>
+      <property name="text">
+       <string>ID</string>
+      </property>
+     </column>
+     <column>
+      <property name="text">
+       <string>Count</string>
+      </property>
+     </column>
+    </widget>
+    <widget class="QPushButton" name="ItemsClearList">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>110</y>
+       <width>201</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Clear List</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ItemsRemoveItem">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>80</y>
+       <width>201</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Remove Item</string>
+     </property>
+    </widget>
+    <widget class="QPushButton" name="ItemsAddItem">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>50</y>
+       <width>201</width>
+       <height>23</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Add Item</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="ItemsAddIDEdit">
+     <property name="geometry">
+      <rect>
+       <x>290</x>
+       <y>20</y>
+       <width>61</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ItemsAddID">
+     <property name="geometry">
+      <rect>
+       <x>270</x>
+       <y>22</y>
+       <width>21</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>ID:</string>
+     </property>
+    </widget>
+    <widget class="QLabel" name="ItemsAddCount">
+     <property name="geometry">
+      <rect>
+       <x>360</x>
+       <y>22</y>
+       <width>41</width>
+       <height>16</height>
+      </rect>
+     </property>
+     <property name="text">
+      <string>Count:</string>
+     </property>
+    </widget>
+    <widget class="QLineEdit" name="ItemsAddCountEdit">
+     <property name="geometry">
+      <rect>
+       <x>400</x>
+       <y>20</y>
+       <width>71</width>
+       <height>20</height>
+      </rect>
+     </property>
+    </widget>
+   </widget>
+   <widget class="QLineEdit" name="StorageKeyEdit">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>20</y>
+      <width>341</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>1000</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="SuccessMessageEdit">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>50</y>
+      <width>341</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>You have found a secret reward.</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="FailureMessageEdit">
+    <property name="geometry">
+     <rect>
+      <x>150</x>
+      <y>80</y>
+      <width>341</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>It is empty.</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QPushButton" name="SaveQuestButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>420</y>
+     <width>501</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Save Quest</string>
+   </property>
+  </widget>
+  <widget class="QPushButton" name="CloseWindowButton">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>450</y>
+     <width>501</width>
+     <height>23</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Close Window</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>
