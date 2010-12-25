@@ -320,12 +320,8 @@ void MainWindow::showFind()
 
 void MainWindow::on_actionQuest_Creator_triggered()
 {
-//    QuestCreator *creator = new QuestCreator(this);
-//    mdi->addSubWindow(creator);
-//    creator->setWindowTitle("Quest Creator");
-//    creator->setWindowState(Qt::WindowMaximized);
-//    creator->show();
-    ui->statusBar->showMessage("Not implemented yet.", 4000);
+	QuestCreator *quest = new QuestCreator(this);
+	quest->show();
 }
 
 void MainWindow::on_actionPrint_triggered()
