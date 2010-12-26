@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading UI file 'questcreator.ui'
 **
-** Created: Sat 25. Dec 02:38:37 2010
+** Created: Mon 27. Dec 00:22:27 2010
 **      by: Qt User Interface Compiler version 4.7.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
@@ -15,6 +15,7 @@
 #include <QtGui/QApplication>
 #include <QtGui/QButtonGroup>
 #include <QtGui/QCheckBox>
+#include <QtGui/QComboBox>
 #include <QtGui/QDialog>
 #include <QtGui/QGroupBox>
 #include <QtGui/QHeaderView>
@@ -41,6 +42,8 @@ public:
     QLineEdit *FileNameEdit;
     QLineEdit *SavePathEdit;
     QPushButton *BrowsePathButton;
+    QLabel *AssignMethodLabel;
+    QComboBox *AssignMethodCombo;
     QGroupBox *QuestSetupGroup;
     QLabel *StorageKeyLabel;
     QLabel *SuccessMessageLabel;
@@ -97,20 +100,26 @@ public:
         AIDSpin->setMaximum(65535);
         FileNameLabel = new QLabel(XMLSetupGroup);
         FileNameLabel->setObjectName(QString::fromUtf8("FileNameLabel"));
-        FileNameLabel->setGeometry(QRect(200, 22, 51, 16));
+        FileNameLabel->setGeometry(QRect(200, 22, 81, 16));
         SavePathLabel = new QLabel(XMLSetupGroup);
         SavePathLabel->setObjectName(QString::fromUtf8("SavePathLabel"));
-        SavePathLabel->setGeometry(QRect(200, 52, 51, 16));
+        SavePathLabel->setGeometry(QRect(200, 52, 81, 16));
         FileNameEdit = new QLineEdit(XMLSetupGroup);
         FileNameEdit->setObjectName(QString::fromUtf8("FileNameEdit"));
-        FileNameEdit->setGeometry(QRect(260, 20, 231, 20));
+        FileNameEdit->setGeometry(QRect(290, 20, 201, 20));
         SavePathEdit = new QLineEdit(XMLSetupGroup);
         SavePathEdit->setObjectName(QString::fromUtf8("SavePathEdit"));
         SavePathEdit->setEnabled(false);
-        SavePathEdit->setGeometry(QRect(260, 50, 151, 20));
+        SavePathEdit->setGeometry(QRect(290, 50, 121, 20));
         BrowsePathButton = new QPushButton(XMLSetupGroup);
         BrowsePathButton->setObjectName(QString::fromUtf8("BrowsePathButton"));
         BrowsePathButton->setGeometry(QRect(420, 48, 75, 23));
+        AssignMethodLabel = new QLabel(XMLSetupGroup);
+        AssignMethodLabel->setObjectName(QString::fromUtf8("AssignMethodLabel"));
+        AssignMethodLabel->setGeometry(QRect(200, 82, 81, 16));
+        AssignMethodCombo = new QComboBox(XMLSetupGroup);
+        AssignMethodCombo->setObjectName(QString::fromUtf8("AssignMethodCombo"));
+        AssignMethodCombo->setGeometry(QRect(290, 80, 201, 22));
         QuestSetupGroup = new QGroupBox(QuestCreator);
         QuestSetupGroup->setObjectName(QString::fromUtf8("QuestSetupGroup"));
         QuestSetupGroup->setGeometry(QRect(10, 120, 501, 291));
@@ -191,6 +200,13 @@ public:
         FileNameLabel->setText(QApplication::translate("QuestCreator", "File name:", 0, QApplication::UnicodeUTF8));
         SavePathLabel->setText(QApplication::translate("QuestCreator", "Save path:", 0, QApplication::UnicodeUTF8));
         BrowsePathButton->setText(QApplication::translate("QuestCreator", "Browse...", 0, QApplication::UnicodeUTF8));
+        AssignMethodLabel->setText(QApplication::translate("QuestCreator", "Assign method:", 0, QApplication::UnicodeUTF8));
+        AssignMethodCombo->clear();
+        AssignMethodCombo->insertItems(0, QStringList()
+         << QApplication::translate("QuestCreator", "Item ID", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("QuestCreator", "Action ID", 0, QApplication::UnicodeUTF8)
+         << QApplication::translate("QuestCreator", "Unique ID", 0, QApplication::UnicodeUTF8)
+        );
         QuestSetupGroup->setTitle(QApplication::translate("QuestCreator", "Quest Setup", 0, QApplication::UnicodeUTF8));
         StorageKeyLabel->setText(QApplication::translate("QuestCreator", "Storage key:", 0, QApplication::UnicodeUTF8));
         SuccessMessageLabel->setText(QApplication::translate("QuestCreator", "Message on success:", 0, QApplication::UnicodeUTF8));
