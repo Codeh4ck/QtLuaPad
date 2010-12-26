@@ -117,7 +117,7 @@
      <rect>
       <x>200</x>
       <y>22</y>
-      <width>51</width>
+      <width>81</width>
       <height>16</height>
      </rect>
     </property>
@@ -130,7 +130,7 @@
      <rect>
       <x>200</x>
       <y>52</y>
-      <width>51</width>
+      <width>81</width>
       <height>16</height>
      </rect>
     </property>
@@ -141,9 +141,9 @@
    <widget class="QLineEdit" name="FileNameEdit">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>290</x>
       <y>20</y>
-      <width>231</width>
+      <width>201</width>
       <height>20</height>
      </rect>
     </property>
@@ -154,9 +154,9 @@
     </property>
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>290</x>
       <y>50</y>
-      <width>151</width>
+      <width>121</width>
       <height>20</height>
      </rect>
     </property>
@@ -173,6 +173,44 @@
     <property name="text">
      <string>Browse...</string>
     </property>
+   </widget>
+   <widget class="QLabel" name="AssignMethodLabel">
+    <property name="geometry">
+     <rect>
+      <x>200</x>
+      <y>82</y>
+      <width>81</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Assign method:</string>
+    </property>
+   </widget>
+   <widget class="QComboBox" name="AssignMethodCombo">
+    <property name="geometry">
+     <rect>
+      <x>290</x>
+      <y>80</y>
+      <width>201</width>
+      <height>22</height>
+     </rect>
+    </property>
+    <item>
+     <property name="text">
+      <string>Item ID</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Action ID</string>
+     </property>
+    </item>
+    <item>
+     <property name="text">
+      <string>Unique ID</string>
+     </property>
+    </item>
    </widget>
   </widget>
   <widget class="QGroupBox" name="QuestSetupGroup">

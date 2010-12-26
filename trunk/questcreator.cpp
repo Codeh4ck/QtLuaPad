@@ -114,7 +114,20 @@ void QuestCreator::onSaveQuestClicked()
 		{
 			questFile.write(result.toUtf8(), result.length());
 			questFile.close();
-			QMessageBox::information(this, "Quest Creator", "Quest has been saved.");
+
+			QMessageBox *message = new QMessageBox(this);
+			message->setIcon(QMessageBox::Information);
+			message->setText("Quest has been saved.\nFor .XML entry please press 'Show Details...'.");
+
+			if(ui->AssignMethodCombo->currentText() == "Item ID")
+				message->setDetailedText("<action itemid=\"" + QString::number(ui->ItemIDSpin->value()) + "\" event=\"script\" value=\"" + ui->FileNameEdit->text() + "\" />");
+			else if(ui->AssignMethodCombo->currentText() == "Action ID")
+				message->setDetailedText("<action actionid=\"" + QString::number(ui->AIDSpin->value()) + "\" event=\"script\" value=\"" + ui->FileNameEdit->text() + "\" />");
+			else
+				message->setDetailedText("<action uniqueid=\"" + QString::number(ui->UIDSpin->value()) + "\" event=\"script\" value=\"" + ui->FileNameEdit->text() + "\" />");
+	
+			message->exec();
+			delete message;
 		}
 		else
 			QMessageBox::critical(this, "Quest Creator", "Couldn't save quest, failed to open file.");
