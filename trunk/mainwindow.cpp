@@ -48,21 +48,42 @@ void MainWindow::closeEvent(QCloseEvent *event)
 
     if(mdi->subWindowList().count() > 0)
     {
-        QMessageBox::StandardButton ret =
-                QMessageBox::question(this, "Attention!",
-                    tr("If you close the editor "
-                       "without saving your scripts, "
-                       "all changes will be lost. "
-                       "Would you like to toceed?"),
-                    QMessageBox::Yes | QMessageBox::No,
-                    QMessageBox::No);
-        if(ret == QMessageBox::Yes)
+
+        QString windows;
+        foreach(QMdiSubWindow *window, mdi->subWindowList())
         {
+            if(window)
+            {
+                LuaEditor *editor = qobject_cast<LuaEditor *>(window->widget());
+                if(editor->isModified())
+                {
+                    windows += "" +editor->windowTitle() + "\n";
+                }
+            }
+        }
+        if(windows != "")
+        {
+            QMessageBox::StandardButton ret =
+                  QMessageBox::warning(this, "Attention!",
+                      tr("If you close the editor "
+                         "without saving your scripts, "
+                         "all changes will be lost.\n"
+                         "Unsaved Scripts:\n"
+                         "\n%1\n"
+                         "Would you like to proceed?").arg(windows),
+                      QMessageBox::Yes | QMessageBox::No,
+                      QMessageBox::No);
+            if(ret == QMessageBox::Yes)
+            {
+                event->accept();
+                delete ui;
+            }
+            else if(ret == QMessageBox::No)
+                event->ignore();
+        } else {
             event->accept();
             delete ui;
         }
-        else if(ret == QMessageBox::No)
-            event->ignore();
     }
 }
 
