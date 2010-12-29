@@ -68,7 +68,7 @@ private slots:
     void openFile();
     void saveFile();
     void showFind();
-    void showReplace() { }
+    void showGotoLine();
     void cut();
     void copy();
     void paste();
