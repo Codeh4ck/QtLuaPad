@@ -40,7 +40,8 @@ protected:
     void closeEvent(QCloseEvent *event);
 
 private slots:
-    void on_actionFind_Replace_triggered();
+    void on_actionGoto_Line_triggered();
+    void on_actionChojrak_triggered();
     void on_actionFind_triggered();
     void on_actionFallen_triggered();
     void on_actionDelirium_triggered();

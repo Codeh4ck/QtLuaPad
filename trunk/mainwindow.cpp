@@ -370,7 +370,23 @@ void MainWindow::on_actionFind_triggered()
     showFind();
 }
 
-void MainWindow::on_actionFind_Replace_triggered()
+void MainWindow::on_actionChojrak_triggered()
 {
-    ui->statusBar->showMessage("Not implemented yet.", 4000);
+    QDesktopServices::openUrl(QUrl(CHOJRAKSPROF));
+}
+
+void MainWindow::on_actionGoto_Line_triggered()
+{
+    bool ok = false;
+    int ret = QInputDialog::getInteger(0, "Goto Line", "Enter a line number to goto:", 1, 1,
+                                       getActiveEditor()->lines(), 10, &ok);
+    if(ok)
+    {
+        ret--;
+        if(getActiveEditor()->lines() >= ret)
+        {
+            getActiveEditor()->setSelection(ret, 0, ret, getActiveEditor()->lineLength(ret) - 1);
+            getActiveEditor()->ensureLineVisible(ret);
+        }
+    }
 }

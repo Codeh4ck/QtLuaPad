@@ -62,7 +62,7 @@
     <addaction name="actionSelect_All"/>
     <addaction name="separator"/>
     <addaction name="actionFind"/>
-    <addaction name="actionFind_Replace"/>
+    <addaction name="actionGoto_Line"/>
    </widget>
    <widget class="QMenu" name="menuAbout">
     <property name="title">
@@ -74,6 +74,7 @@
      </property>
      <addaction name="actionDelirium"/>
      <addaction name="actionFallen"/>
+     <addaction name="actionChojrak"/>
     </widget>
     <addaction name="actionQtLuaPad"/>
     <addaction name="actionOtland"/>
@@ -284,16 +285,19 @@
     <string>Ctrl+F</string>
    </property>
   </action>
-  <action name="actionFind_Replace">
+  <action name="actionGoto_Line">
    <property name="icon">
     <iconset resource="icons/res_icon.qrc">
      <normaloff>:/doc_edit.png</normaloff>:/doc_edit.png</iconset>
    </property>
    <property name="text">
-    <string>Find &amp; Replace</string>
+    <string>Goto Line</string>
+   </property>
+   <property name="toolTip">
+    <string>Goto Line</string>
    </property>
    <property name="shortcut">
-    <string>Shift+F</string>
+    <string>Ctrl+G</string>
    </property>
   </action>
   <action name="actionDebuger">
@@ -369,6 +373,15 @@
    </property>
    <property name="text">
     <string>Fallen</string>
+   </property>
+  </action>
+  <action name="actionChojrak">
+   <property name="icon">
+    <iconset resource="icons/res_icon.qrc">
+     <normaloff>:/session.png</normaloff>:/session.png</iconset>
+   </property>
+   <property name="text">
+    <string>chojrak</string>
    </property>
   </action>
  </widget>

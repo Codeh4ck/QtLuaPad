@@ -7,6 +7,7 @@
 #define ORGURL "http://otland.net/forum.php"
 #define FALLENSPROF "http://otland.net/members/Fallen"
 #define DELIRIUMSPROF "http://otland.net/members/Delirium"
+#define CHOJRAKSPROF "http://otland.net/members/chojrak"
 
 #ifdef assert
         #undef assert

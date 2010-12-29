@@ -9,187 +9,245 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>346</width>
-    <height>112</height>
+    <width>375</width>
+    <height>206</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Find Text</string>
   </property>
-  <widget class="QLineEdit" name="txtFind">
+  <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>80</x>
-     <y>6</y>
-     <width>141</width>
-     <height>20</height>
+     <x>8</x>
+     <y>5</y>
+     <width>358</width>
+     <height>101</height>
     </rect>
    </property>
+   <property name="title">
+    <string>Text Search</string>
+   </property>
+   <widget class="QPushButton" name="pushButton">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>60</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Cancel</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>23</y>
+      <width>61</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Text to Find:</string>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rdUp">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>73</y>
+      <width>82</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Search Up</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cbWholeWords">
+    <property name="geometry">
+     <rect>
+      <x>123</x>
+      <y>73</y>
+      <width>91</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Whole Words</string>
+    </property>
+   </widget>
+   <widget class="Line" name="line">
+    <property name="geometry">
+     <rect>
+      <x>93</x>
+      <y>47</y>
+      <width>41</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="orientation">
+     <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtFind">
+    <property name="geometry">
+     <rect>
+      <x>80</x>
+      <y>22</y>
+      <width>141</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QRadioButton" name="rdDown">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>52</y>
+      <width>89</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Search Down</string>
+    </property>
+   </widget>
+   <widget class="QCheckBox" name="cbCaseSensitive">
+    <property name="geometry">
+     <rect>
+      <x>123</x>
+      <y>52</y>
+      <width>96</width>
+      <height>17</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Case Sensitive</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="findNext">
+    <property name="geometry">
+     <rect>
+      <x>240</x>
+      <y>26</y>
+      <width>111</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Find Next</string>
+    </property>
+   </widget>
   </widget>
-  <widget class="QRadioButton" name="rdDown">
+  <widget class="QGroupBox" name="groupBox_2">
    <property name="geometry">
     <rect>
-     <x>10</x>
-     <y>36</y>
-     <width>89</width>
-     <height>17</height>
+     <x>8</x>
+     <y>120</y>
+     <width>358</width>
+     <height>80</height>
     </rect>
    </property>
-   <property name="text">
-    <string>Search Down</string>
+   <property name="title">
+    <string>Search &amp;&amp; Replace</string>
    </property>
-  </widget>
-  <widget class="QRadioButton" name="rdUp">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>57</y>
-     <width>82</width>
-     <height>17</height>
-    </rect>
+   <property name="checkable">
+    <bool>true</bool>
    </property>
-   <property name="text">
-    <string>Search Up</string>
-   </property>
-  </widget>
-  <widget class="Line" name="line">
-   <property name="geometry">
-    <rect>
-     <x>93</x>
-     <y>31</y>
-     <width>41</width>
-     <height>51</height>
-    </rect>
-   </property>
-   <property name="orientation">
-    <enum>Qt::Vertical</enum>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="cbCaseSensitive">
-   <property name="geometry">
-    <rect>
-     <x>123</x>
-     <y>36</y>
-     <width>96</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Case Sensitive</string>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label">
-   <property name="geometry">
-    <rect>
-     <x>10</x>
-     <y>7</y>
-     <width>61</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Text to Find:</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="cbWholeWords">
-   <property name="geometry">
-    <rect>
-     <x>123</x>
-     <y>57</y>
-     <width>91</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Whole Words</string>
-   </property>
-  </widget>
-  <widget class="QLineEdit" name="lineEdit">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>111</x>
-     <y>86</y>
-     <width>161</width>
-     <height>20</height>
-    </rect>
-   </property>
-  </widget>
-  <widget class="QLabel" name="label_2">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>80</x>
-     <y>88</y>
-     <width>31</width>
-     <height>16</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>With:</string>
-   </property>
-  </widget>
-  <widget class="QCheckBox" name="replace">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>9</x>
-     <y>87</y>
-     <width>63</width>
-     <height>17</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Replace?</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="goReplace">
-   <property name="enabled">
-    <bool>false</bool>
-   </property>
-   <property name="geometry">
-    <rect>
-     <x>280</x>
-     <y>84</y>
-     <width>60</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Replace</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="findNext">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>10</y>
-     <width>111</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Find Next</string>
-   </property>
-  </widget>
-  <widget class="QPushButton" name="pushButton">
-   <property name="geometry">
-    <rect>
-     <x>230</x>
-     <y>44</y>
-     <width>111</width>
-     <height>23</height>
-    </rect>
-   </property>
-   <property name="text">
-    <string>Cancel</string>
-   </property>
+   <widget class="QPushButton" name="replaceAll">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>50</y>
+      <width>71</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Replace All</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="goReplace">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>210</x>
+      <y>50</y>
+      <width>60</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Replace</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>50</y>
+      <width>32</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>With:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtReplaceWith">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>50</y>
+      <width>161</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>20</y>
+      <width>46</width>
+      <height>13</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Replace:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="txtReplace">
+    <property name="enabled">
+     <bool>false</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>59</x>
+      <y>18</y>
+      <width>291</width>
+      <height>20</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
  </widget>
  <resources/>
