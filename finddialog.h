@@ -31,6 +31,9 @@ protected:
     } d;
 
 private slots:
+    void on_replaceAll_clicked();
+    void on_groupBox_2_clicked();
+    void on_goReplace_clicked();
     void on_pushButton_clicked();
     void on_findNext_clicked();
 };
