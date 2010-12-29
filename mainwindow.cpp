@@ -163,7 +163,7 @@ void MainWindow::setupToolbar()
     ui->mainToolBar->addAction(QIcon((":/disk.png")),  "Save File",  this,  SLOT(saveFile()));
     ui->mainToolBar->addSeparator();
     ui->mainToolBar->addAction(QIcon(":/find.png"), tr("Find..."),  this,  SLOT(showFind()));
-    ui->mainToolBar->addAction(QIcon(":/replace.png"), tr("Replace..."),  this,  SLOT(showReplace()));
+    ui->mainToolBar->addAction(QIcon(":/replace.png"), tr("Replace..."),  this,  SLOT(showGotoLine()));
     ui->mainToolBar->addAction(QIcon(":/cut.png"), tr("Cut"),  this,  SLOT(cut()));
     ui->mainToolBar->addAction(QIcon(":/copy.png"), tr("Copy"),  this,  SLOT(copy()));
     ui->mainToolBar->addAction(QIcon(":/paste.png"), tr("Paste"),  this,  SLOT(paste()));
@@ -336,7 +336,7 @@ void MainWindow::showFind()
         dialog->setEditor(getActiveEditor());
         dialog->showNormal();
     } else
-        ui->statusBar->showMessage("No active window found to open the Find Dialog.", 4000);
+        ui->statusBar->showMessage("No active editor found to open the Find Dialog.", 4000);
 }
 
 void MainWindow::on_actionQuest_Creator_triggered()
@@ -375,18 +375,27 @@ void MainWindow::on_actionChojrak_triggered()
     QDesktopServices::openUrl(QUrl(CHOJRAKSPROF));
 }
 
+void MainWindow::showGotoLine()
+{
+    if(mdi->subWindowList().count() > 0)
+    {
+        bool ok = false;
+        int ret = QInputDialog::getInteger(0, "Goto Line", "Enter a line number to goto:", 1, 1,
+                                           getActiveEditor()->lines(), 10, &ok);
+        if(ok)
+        {
+            ret--;
+            if(getActiveEditor()->lines() >= ret)
+            {
+                getActiveEditor()->setSelection(ret, 0, ret, getActiveEditor()->lineLength(ret) - 1);
+                getActiveEditor()->ensureLineVisible(ret);
+            }
+        }
+    } else
+        ui->statusBar->showMessage("No active editor found to open the Goto Line dialog!", 4000);
+}
+
 void MainWindow::on_actionGoto_Line_triggered()
 {
-    bool ok = false;
-    int ret = QInputDialog::getInteger(0, "Goto Line", "Enter a line number to goto:", 1, 1,
-                                       getActiveEditor()->lines(), 10, &ok);
-    if(ok)
-    {
-        ret--;
-        if(getActiveEditor()->lines() >= ret)
-        {
-            getActiveEditor()->setSelection(ret, 0, ret, getActiveEditor()->lineLength(ret) - 1);
-            getActiveEditor()->ensureLineVisible(ret);
-        }
-    }
+    showGotoLine();
 }
