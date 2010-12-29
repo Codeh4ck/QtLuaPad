@@ -1,0 +1,5 @@
+<?xml version="1.0"?>
+<functions>
+	<function>isPlayer(cid)</function>
+	<function>doPlayerSendCancel(cid, message)</function>
+</functions>
