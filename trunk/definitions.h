@@ -1,7 +1,7 @@
 #ifndef DEFINITIONS_H
 #define DEFINITIONS_H
 
-#define APPVRSN "1.0"
+#define APPVRSN "1.1"
 #define APPNAME "QtLuaPad"
 #define ORGNAME "Delirium"
 #define ORGURL "http://otland.net/forum.php"
