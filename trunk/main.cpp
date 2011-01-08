@@ -21,11 +21,10 @@ int main(int argc, char *argv[])
     // Simple trick to create a single instance application.
     QSharedMemory sharedMemory("QtLuaPad");
     if (sharedMemory.create(1) && sharedMemory.error() != QSharedMemory::AlreadyExists)
-    {
         w.show();
-    }
-    else
+    else {
         QMessageBox::critical(0, "Warning!", "Application is already running!");
-
+        return 1;
+    }
     return a.exec();
 }
