@@ -1,6 +1,7 @@
 #ifndef LUAEDITOR_H
 #define LUAEDITOR_H
 
+#define QSCINTILLA_DLL
 #include <QtGui>
 #include <QCompleter>
 #include <Qsci/qsciscintilla.h>

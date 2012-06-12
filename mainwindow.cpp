@@ -98,6 +98,27 @@ void MainWindow::saveFile()
         ui->statusBar->showMessage("File successfully saved!", 4000);
 }
 
+void MainWindow::_openFile(QString file)
+{
+	QMdiSubWindow *w = getChildByPath(file);
+	if(w)
+	{
+		mdi->setActiveSubWindow(w);
+		return;
+	}
+	LuaEditor *editor = createMdiChild();
+	if(editor->openFile(file))
+	{
+		ui->statusBar->showMessage(tr("Loaded file: %1.").arg(file));
+		mdi->addSubWindow(editor);
+		mdi->setActiveSubWindow(qobject_cast<QMdiSubWindow*>(editor));
+		editor->showMaximized();
+	} else {
+		editor->close();
+	}
+	setWindowState(Qt::WindowMaximized);
+}
+
 void MainWindow::openFile()
 {
     QString file = QFileDialog::getOpenFileName(this, "Open Script", "", "Lua Scripts (*.lua)");

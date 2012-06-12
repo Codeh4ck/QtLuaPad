@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading UI file 'mainwindow.ui'
 **
-** Created: Fri 24. Dec 02:49:10 2010
-**      by: Qt User Interface Compiler version 4.7.0
+** Created: Sun Jun 10 05:31:38 2012
+**      by: Qt User Interface Compiler version 4.7.3
 **
 ** WARNING! All changes made in this file will be lost when recompiling UI file!
 ********************************************************************************/
@@ -42,7 +42,7 @@ public:
     QAction *actionDelete_Selected;
     QAction *actionSelect_All;
     QAction *actionFind;
-    QAction *actionFind_Replace;
+    QAction *actionGoto_Line;
     QAction *actionDebuger;
     QAction *actionOptions;
     QAction *actionQtLuaPad;
@@ -50,6 +50,7 @@ public:
     QAction *actionQuest_Creator;
     QAction *actionDelirium;
     QAction *actionFallen;
+    QAction *actionChojrak;
     QWidget *centralWidget;
     QMenuBar *menuBar;
     QMenu *menuFile;
@@ -143,11 +144,11 @@ public:
         QIcon icon14;
         icon14.addFile(QString::fromUtf8(":/find.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionFind->setIcon(icon14);
-        actionFind_Replace = new QAction(MainWindow);
-        actionFind_Replace->setObjectName(QString::fromUtf8("actionFind_Replace"));
+        actionGoto_Line = new QAction(MainWindow);
+        actionGoto_Line->setObjectName(QString::fromUtf8("actionGoto_Line"));
         QIcon icon15;
         icon15.addFile(QString::fromUtf8(":/doc_edit.png"), QSize(), QIcon::Normal, QIcon::Off);
-        actionFind_Replace->setIcon(icon15);
+        actionGoto_Line->setIcon(icon15);
         actionDebuger = new QAction(MainWindow);
         actionDebuger->setObjectName(QString::fromUtf8("actionDebuger"));
         QIcon icon16;
@@ -183,6 +184,9 @@ public:
         QIcon icon22;
         icon22.addFile(QString::fromUtf8(":/session.png"), QSize(), QIcon::Normal, QIcon::Off);
         actionFallen->setIcon(icon22);
+        actionChojrak = new QAction(MainWindow);
+        actionChojrak->setObjectName(QString::fromUtf8("actionChojrak"));
+        actionChojrak->setIcon(icon22);
         centralWidget = new QWidget(MainWindow);
         centralWidget->setObjectName(QString::fromUtf8("centralWidget"));
         MainWindow->setCentralWidget(centralWidget);
@@ -236,7 +240,7 @@ public:
         menuEdit->addAction(actionSelect_All);
         menuEdit->addSeparator();
         menuEdit->addAction(actionFind);
-        menuEdit->addAction(actionFind_Replace);
+        menuEdit->addAction(actionGoto_Line);
         menuDelete->addAction(actionDelete_Line);
         menuDelete->addAction(actionDelete_Selected);
         menuAbout->addAction(actionQtLuaPad);
@@ -244,6 +248,7 @@ public:
         menuAbout->addAction(menuContact->menuAction());
         menuContact->addAction(actionDelirium);
         menuContact->addAction(actionFallen);
+        menuContact->addAction(actionChojrak);
         menuTools->addAction(actionDebuger);
         menuTools->addAction(menuOpen_Tibia_Tools->menuAction());
         menuTools->addAction(actionOptions);
@@ -284,8 +289,11 @@ public:
         actionSelect_All->setShortcut(QApplication::translate("MainWindow", "Ctrl+A", 0, QApplication::UnicodeUTF8));
         actionFind->setText(QApplication::translate("MainWindow", "Find", 0, QApplication::UnicodeUTF8));
         actionFind->setShortcut(QApplication::translate("MainWindow", "Ctrl+F", 0, QApplication::UnicodeUTF8));
-        actionFind_Replace->setText(QApplication::translate("MainWindow", "Find & Replace", 0, QApplication::UnicodeUTF8));
-        actionFind_Replace->setShortcut(QApplication::translate("MainWindow", "Shift+F", 0, QApplication::UnicodeUTF8));
+        actionGoto_Line->setText(QApplication::translate("MainWindow", "Goto Line", 0, QApplication::UnicodeUTF8));
+#ifndef QT_NO_TOOLTIP
+        actionGoto_Line->setToolTip(QApplication::translate("MainWindow", "Goto Line", 0, QApplication::UnicodeUTF8));
+#endif // QT_NO_TOOLTIP
+        actionGoto_Line->setShortcut(QApplication::translate("MainWindow", "Ctrl+G", 0, QApplication::UnicodeUTF8));
         actionDebuger->setText(QApplication::translate("MainWindow", "Debuger", 0, QApplication::UnicodeUTF8));
         actionDebuger->setShortcut(QApplication::translate("MainWindow", "Ctrl+D", 0, QApplication::UnicodeUTF8));
         actionOptions->setText(QApplication::translate("MainWindow", "Options", 0, QApplication::UnicodeUTF8));
@@ -297,6 +305,7 @@ public:
         actionQuest_Creator->setText(QApplication::translate("MainWindow", "Quest Creator", 0, QApplication::UnicodeUTF8));
         actionDelirium->setText(QApplication::translate("MainWindow", "Delirium", 0, QApplication::UnicodeUTF8));
         actionFallen->setText(QApplication::translate("MainWindow", "Fallen", 0, QApplication::UnicodeUTF8));
+        actionChojrak->setText(QApplication::translate("MainWindow", "chojrak", 0, QApplication::UnicodeUTF8));
         menuFile->setTitle(QApplication::translate("MainWindow", "File", 0, QApplication::UnicodeUTF8));
         menuEdit->setTitle(QApplication::translate("MainWindow", "Edit", 0, QApplication::UnicodeUTF8));
         menuDelete->setTitle(QApplication::translate("MainWindow", "Delete", 0, QApplication::UnicodeUTF8));

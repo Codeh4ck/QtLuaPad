@@ -57,12 +57,12 @@ void LuaEditor::initLexer()
 
     if(autoComp)
     {
-        this->setAutoCompletionSource(QsciScintilla::AcsAll);
-        this->setAutoCompletionCaseSensitivity(false);
-        this->setAutoCompletionFillupsEnabled(true);
-        this->setAutoCompletionThreshold(2);
-        this->setAutoCompletionShowSingle(true);
-        this->setAutoCompletionFillupsEnabled(true);
+        setAutoCompletionSource(QsciScintilla::AcsAll);
+        setAutoCompletionCaseSensitivity(false);
+        setAutoCompletionFillupsEnabled(true);
+        setAutoCompletionThreshold(2);
+        setAutoCompletionShowSingle(true);
+
         QsciAPIs *apis = new QsciAPIs(lexer);
         xmlDocPtr doc = xmlParseFile(funcFile.toLatin1());
         if(!doc)

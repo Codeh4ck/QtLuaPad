@@ -14,7 +14,8 @@
 #endif
 
 #include <sstream>
-#include <stdint.h>
+/*
+#include <cstdint>
 
 #ifdef qApp
         #define assert(x)\
@@ -71,5 +72,5 @@ template<typename __T>
 inline void
 __deallocate(__T* __p)
 { ::operator delete(__p); }
-
+*/
 #endif // DEFINITIONS_H

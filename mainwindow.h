@@ -39,6 +39,9 @@ public:
 protected:
     void closeEvent(QCloseEvent *event);
 
+public slots:
+	void _openFile(QString file);
+
 private slots:
     void on_actionGoto_Line_triggered();
     void on_actionChojrak_triggered();
