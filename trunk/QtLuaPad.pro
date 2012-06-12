@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network
 
 TARGET = QtLuaPad
 TEMPLATE = app
@@ -32,7 +32,7 @@ FORMS    += mainwindow.ui \
     about.ui \
     questcreator.ui
 
-LIBS += -lqscintilla2 -lxml2
+LIBS += qscintilla2.lib xml2.lib
 
 RESOURCES += \
     icons/res_icon.qrc
