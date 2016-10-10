@@ -14,3 +14,7 @@ QtLuaPad is a LUA script editor written primarily to be used with OpenTibia serv
 * Delirium
 * Fallen
 * Chojrak
+
+# Screenshot
+
+![Imgur](https://i.imgur.com/8AsGh.png)
